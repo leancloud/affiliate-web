@@ -7,6 +7,9 @@ import configureStore from './store/configureStore';
 import routes from './routes';
 import { syncReduxAndRouter } from 'redux-simple-router';
 
+import AV from 'avoscloud-sdk';
+AV.initialize('bkaTfiY3Nc2jLJW7hXRmoFiK', 'FkooEOxbmkmSnlEvTjxPFEiy');
+
 const store = configureStore();
 const history = createHistory();
 

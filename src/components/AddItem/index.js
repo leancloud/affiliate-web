@@ -5,6 +5,11 @@ import { reset } from 'redux-form';
 /* component styles */
 import styles from './styles';
 
+@reduxForm({
+  form: 'addItem',
+  fields: ['name'],
+  destroyOnUnmount: false,
+})
 export class AddItem extends Component {
   static propTypes = {
     dispatch: React.PropTypes.func,
@@ -53,11 +58,5 @@ export class AddItem extends Component {
     );
   }
 }
-
-AddItem = reduxForm({
-  form: 'addItem',
-  fields: ['name'],
-  destroyOnUnmount: false,
-})(AddItem);
 
 export default AddItem;

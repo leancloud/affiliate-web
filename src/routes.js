@@ -4,11 +4,13 @@ import { Route } from 'react-router';
 /* containers */
 import { App } from 'containers/App';
 import { Home } from 'containers/Home';
+import { Login } from 'containers/Login';
 import { List } from 'containers/List';
 
 export default (
   <Route path="/" component={App}>
     <Route path="home" component={Home} />
+    <Route path="login" component={Login} />
     <Route path="list" component={List} />
   </Route>
 );
