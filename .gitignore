@@ -53,6 +53,5 @@ ios
 .yo-rc.json
 .jshintrc
 .gitattributes
-.editorconfig
-.babelrc
 npm-debug.log
+dist
