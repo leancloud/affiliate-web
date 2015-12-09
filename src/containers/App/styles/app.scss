@@ -1,12 +1,13 @@
 /* global styles */
 
-@import 'fonts/roboto';
+@import 'fonts/radikal';
 @import 'typography';
 @import 'links';
 
 :global(body) {
   position: relative;
-
+  background-color: #f8f8f8;
+  
   h1 {
     margin-top: 80px;
   }

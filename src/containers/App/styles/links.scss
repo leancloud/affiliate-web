@@ -1,7 +1,14 @@
 a {
-  text-decoration: none;
-
-  &:hover {
+  ,
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited {
+    color: #333;
     text-decoration: none;
+  }
+  &:hover,
+  &:focus {
+    color: #000;
   }
 }

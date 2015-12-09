@@ -6,6 +6,7 @@ import { Router, Redirect } from 'react-router';
 import configureStore from './store/configureStore';
 import routes from './routes';
 import { syncReduxAndRouter } from 'redux-simple-router';
+import DevTools from './containers/DevTools';
 
 import AV from 'avoscloud-sdk';
 AV.initialize('bkaTfiY3Nc2jLJW7hXRmoFiK', 'FkooEOxbmkmSnlEvTjxPFEiy');
@@ -17,10 +18,13 @@ syncReduxAndRouter(history, store);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
-      <Redirect from="/" to="home" />
-      {routes}
-    </Router>
+    <div>
+      <Router history={history}>
+        <Redirect from="/" to="home" />
+        {routes}
+      </Router>
+      <DevTools />
+    </div>
   </Provider>,
   document.getElementById('root')
 );

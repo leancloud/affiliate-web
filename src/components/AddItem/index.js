@@ -41,19 +41,6 @@ export class AddItem extends Component {
 
     return (
       <form className={styles} onSubmit={this.onAdd}>
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter something"
-            {...name}
-            />
-        </div>
-        <div className="form-group">
-          <button className="btn btn-default" onClick={this.onAdd}>
-            Add item
-          </button>
-        </div>
       </form>
     );
   }

@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
 import AV from 'avoscloud-sdk';
 
-import * as actionCreators from 'actions/user';
-
+import * as userActionCreators from 'actions/user';
+import { actions as notifActionCreators } from 're-notif';
 /* components */
 import { LoginForm } from 'components/LoginForm';
 
@@ -18,19 +18,20 @@ const metaData = {
 };
 
 @connect(
-  state => state.items,
-  dispatch => bindActionCreators(actionCreators, dispatch)
+  state => {
+    return {
+      user: state.user,
+    }
+  },
+  dispatch => bindActionCreators({...userActionCreators}, dispatch)
 )
 export class Login extends Component {
-  handleSubmit(authData) {
-    this.props.login(authData);
-  }
 
   render() {
     return (
       <section>
         <DocumentMeta {...metaData} />
-        <LoginForm onSubmit={this.handleSubmit.bind(this)} {...this.props}/>
+        <LoginForm onSubmit={this.props.login} {...this.props}/>
       </section>
     );
   }
