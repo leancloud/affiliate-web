@@ -1,8 +1,9 @@
 :local(.styles) {
   font-size: 10px;
-  opacity: .5;
-  margin: 20px 0 30px;
+  color: #666;
+  padding: 20px 0 10px;
   text-align: center;
+  border-top: 1px solid #e2e2e2;
 
   li {
     display: inline;

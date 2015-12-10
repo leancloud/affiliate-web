@@ -45,10 +45,10 @@
       width: 100%;
       min-width: 6em;
       padding: 5px 0;
-      text-align: center;
       line-height: 40px;
       background-color: #FFF;
       border: $border;
+      box-shadow: 0 10px 40px rgba(0,0,0,.06);
       a {
         display: block;
       }
@@ -73,7 +73,6 @@
   }
 
   nav {
-
     a {
       &.active {
         display: none;
