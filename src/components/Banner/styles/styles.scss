@@ -1,0 +1,24 @@
+@import "../../../styles/variables";
+
+:local(.styles) {
+  background-image: $background-gradient;
+  align-items: center;
+
+  .banner-wrapper {
+    width: 800px;
+    max-width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: url(../images/banner.png) 90% 50% no-repeat;
+  }
+
+  del {
+    background: url(../images/del.png) 50% 30% no-repeat;
+    background-size: 95% 50%;
+    padding: 0 .2em;
+    text-decoration: none;
+  }
+}

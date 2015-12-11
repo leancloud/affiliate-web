@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 
 import DocumentMeta from 'react-document-meta';
 
-import { Items } from 'components/Items';
-import { AddItem } from 'components/AddItem';
-
 /* actions */
 import * as actionCreators from 'actions/items';
 

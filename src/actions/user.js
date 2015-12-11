@@ -6,7 +6,7 @@ const LOGIN_ERROR_MESSAGES = {
   '211': '该用户不存在'
 };
 
-function _login(authInfo = {}) {
+function _login(fields = {}) {
   return {
     type: 'LOGIN',
     payload: {
@@ -22,10 +22,10 @@ export function logout() {
   };
 }
 
-export function login(authInfo = {}) {
+export function login(fields = {}) {
   const {
     username, password
-  } = authInfo
+  } = fields;
   const loginPromise = AV.User.logIn(username, password);
   return (dispatch, getState) => {
     dispatch({
@@ -45,5 +45,59 @@ export function login(authInfo = {}) {
         dismissAfter: 5000,
       }))
     )
+  }
+}
+
+export function signup(fields = {}) {
+  const {
+    username, password, email
+  } = fields;
+  const signupPromise = new AV.User({
+    username,
+    password,
+    email,
+  }).signUp();
+  return (dispatch, getState) => {
+    dispatch({
+      type: 'SIGNUP',
+      payload: {
+        promise: signupPromise,
+      }
+    });
+    signupPromise.then(() => {
+      dispatch(login({
+        username,
+        password,
+      }));
+      dispatch(notifActions.notifSend({
+        message: '注册成功',
+        kind: 'success',
+        dismissAfter: 2000,
+      }))
+    }).catch((error) =>
+      dispatch(notifActions.notifSend({
+        message: LOGIN_ERROR_MESSAGES[error.code] || error.message,
+        kind: 'danger',
+        dismissAfter: 5000,
+      }))
+    )
+  }
+}
+
+export function updateUser() {
+  return (dispatch) => {
+    let user = AV.User.current();
+    if (user) {
+      dispatch({
+        type: 'USER_UPDATED',
+        payload: user
+      });
+      user.fetch().then(user =>
+        dispatch({
+          type: 'USER_UPDATED',
+          payload: user
+        })
+      );
+    }
   }
 }

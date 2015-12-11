@@ -4,19 +4,41 @@
 @import 'typography';
 @import 'links';
 
+* {
+    box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+}
+
+.fill-parent{
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
 :global(body) {
-  position: relative;
   background-color: #f8f8f8;
-  
-  h1 {
-    margin-top: 80px;
-  }
+  height: 100%;
+  margin: 0;
 
-  h2 {
-    margin-bottom: 20px;
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1170px;
   }
-
-  img {
-    width: 100%;
+  .wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
   }
 }

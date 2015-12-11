@@ -10,7 +10,7 @@ import { actions as notifActionCreators } from 're-notif';
 import { LoginForm } from 'components/LoginForm';
 
 const metaData = {
-  title: '登录 - LeanAffiliate',
+  title: '登录 - LeanCloud Affiliate',
   description: '',
   meta: {
     charset: 'utf-8'

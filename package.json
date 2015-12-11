@@ -80,7 +80,7 @@
     "yargs": "^3.18.0"
   },
   "dependencies": {
-    "avoscloud-sdk": "^0.6.7",
+    "avoscloud-sdk": "1.0.0-rc5",
     "bootstrap": "^3.3.5",
     "jquery": "^2.1.4",
     "re-notif": "^1.0.2",

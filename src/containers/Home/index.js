@@ -2,30 +2,22 @@ import React, { Component } from 'react';
 import DocumentMeta from 'react-document-meta';
 
 /* components */
-import { TopImage } from 'components/TopImage';
-import { Tools } from 'components/Tools';
-import { Projects } from 'components/Projects';
+import { Banner } from 'components/Banner';
 
 const metaData = {
-  title: 'Redux Easy Boilerplate',
-  description: 'Start you project easy and fast with modern tools',
-  canonical: 'http://example.com/path/to/page',
+  title: 'LeanCloud Affiliate',
+  description: '',
   meta: {
-    charset: 'utf-8',
-    name: {
-      keywords: 'react,meta,document,html,tags',
-    },
+    charset: 'utf-8'
   },
 };
 
 export class Home extends Component {
   render() {
     return (
-      <section>
+      <section className="fill-parent">
         <DocumentMeta {...metaData} />
-        <TopImage />
-        <Tools />
-        <Projects />
+        <Banner />
       </section>
     );
   }

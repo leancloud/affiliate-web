@@ -5,11 +5,13 @@ import styles from './styles';
 
 export function Footer () {
   return (
-    <ul className={`${styles}`}>
-      <li>美味书签（北京）信息技术有限公司</li>
-      <li><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备12025059号-8</a></li>
-      <li>京公网安备11010802014772号</li>
-      <li>经营性许可证编号：京ICP证130300号</li>
-    </ul>
+    <footer className={`${styles}`}>
+      <ul className="container">
+        <li>美味书签（北京）信息技术有限公司</li>
+        <li><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备12025059号-8</a></li>
+        <li>京公网安备11010802014772号</li>
+        <li>经营性许可证编号：京ICP证130300号</li>
+      </ul>
+    </footer>
   );
 }

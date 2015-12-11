@@ -5,6 +5,7 @@ export function user(state = {}, action) {
         loading: true,
       };
 
+    case 'USER_UPDATED':
     case 'LOGIN_FULFILLED':
       return Object.assign({
         loading: false,

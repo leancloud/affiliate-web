@@ -10,6 +10,7 @@ import DevTools from './containers/DevTools';
 
 import AV from 'avoscloud-sdk';
 AV.initialize('bkaTfiY3Nc2jLJW7hXRmoFiK', 'FkooEOxbmkmSnlEvTjxPFEiy');
+window.AV = AV;
 
 const store = configureStore();
 const history = createHistory();
@@ -18,7 +19,7 @@ syncReduxAndRouter(history, store);
 
 ReactDOM.render(
   <Provider store={store}>
-    <div>
+    <div className="fill-parent">
       <Router history={history}>
         <Redirect from="/" to="home" />
         {routes}

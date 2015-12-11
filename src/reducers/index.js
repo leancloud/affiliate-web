@@ -5,6 +5,7 @@ import { reducer as notifReducer } from 're-notif';
 import { items } from './items';
 import { user } from './user';
 import { header } from './header';
+import { sign } from './sign';
 
 const rootReducer = combineReducers({
   form: formReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   items,
   user,
   header,
+  sign,
 });
 
 export default rootReducer;

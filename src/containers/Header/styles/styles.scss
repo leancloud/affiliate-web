@@ -1,13 +1,13 @@
-:local(.styles) {
-  $border: 1px solid #e2e2e2;
+@import "../../../styles/variables";
 
+:local(.styles) {
   width: 100%;
   line-height: 60px;
   border-bottom: $border;
 
   .container {
-    max-width: 1000px;
     display: flex;
+    flex-wrap: wrap;
   }
 
   a, .item {

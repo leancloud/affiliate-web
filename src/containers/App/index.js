@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import 'bootstrap-webpack';
+// import 'bootstrap-webpack';
 import AV from 'avoscloud-sdk';
 
 /* global styles for app */
@@ -10,28 +11,28 @@ import 'style!./styles/app.scss';
 import { Notifs } from 're-notif';
 import { Header } from '../Header';
 import { Footer } from 'components/Footer';
+import * as userActionCreators from 'actions/user';
 
-@connect()
+@connect(
+  null,
+  dispatch => bindActionCreators({...userActionCreators}, dispatch)
+)
 export class App extends Component {
   static propTypes = {
     children: React.PropTypes.any,
   }
 
   componentWillMount() {
-    let user = AV.User.current();
-    if (user) {
-      this.props.dispatch({
-        type: 'LOGIN_FULFILLED',
-        payload: user
-      });
-    }
+    this.props.updateUser();
   }
 
   render() {
     return (
-      <section>
+      <section className='wrapper'>
         <Header />
-        {this.props.children}
+        <div className="main">
+          {this.props.children}
+        </div>
         <Footer />
         <Notifs />
       </section>
