@@ -7,7 +7,6 @@ import { Home } from 'containers/Home';
 import { Login } from 'containers/Login';
 import { Logout } from 'containers/Logout';
 import { Signup } from 'containers/Signup';
-import { List } from 'containers/List';
 import {requireAuthentication} from 'containers/AuthenticatedComponent';
 
 export default (
@@ -16,6 +15,6 @@ export default (
     <Route path="login" component={Login} />
     <Route path="logout" component={Logout} />
     <Route path="signup" component={Signup} />
-    <Route path="list" component={requireAuthentication(List)} />
   </Route>
 );
+/*<Route path="account" component={requireAuthentication(account)} />*/

@@ -18,7 +18,7 @@ export function Banner (props) {
             { props.isLoggedin ? '' : '还等什么？' }
           </p>
           { props.isLoggedin
-            ? <Link to="/console" className="signup-button pure-button pure-button-primary">查看我的账户</Link>
+            ? <Link to="/account" className="signup-button pure-button pure-button-primary">查看我的账户</Link>
             : <Link to="/signup" className="signup-button pure-button pure-button-primary">我要加入</Link>
           }
       </div>
