@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "5"
+sudo: false
+before_install:
+  - git fetch --unshallow
+after_success:
+  - if [[ "$TRAVIS_BRANCH" == "master" ]] && [[ "${TRAVIS_PULL_REQUEST}" = "false" ]]; then
+      echo "Deploy to GitHub Pages.";
+      git checkout master;
+      git config user.name "leancloud-bot";
+      git config user.email "ci@leancloud.rocks";
+      git add dist -f;
+      git commit -m "Deploy to GitHub Pages [skip ci]";
+      git push -qf https://${TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git master:gh-pages;
+      echo "Deployed.";
+      curl -X POST --data-urlencode "payload={\"text\":\"${TRAVIS_COMMIT} depolyed to [stage](https://leancloud.github.io/affiliate-web/).\"}" ${HOOK};
+    fi
