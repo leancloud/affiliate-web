@@ -1,0 +1,16 @@
+@import "../../../styles/variables";
+
+:local(.styles) {
+  justify-content: center;
+  background: $background-gradient;
+  align-items: center;
+  .terms-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    > button {
+      font-size: 120%;
+      margin: 20px 0;
+    }
+  }
+}

@@ -20,7 +20,7 @@ ul {
 }
 
 :global(body) {
-  background-color: #f8f8f8;
+  background-color: $background-color;
   height: 100%;
   margin: 0;
 

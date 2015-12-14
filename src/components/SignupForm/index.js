@@ -22,38 +22,31 @@ export class SignupForm extends Component {
     } = this.props;
 
     return (
-      <form className={styles} onSubmit={handleSubmit}>
-        <div className="form-group">
-          <input
-            type="email"
-            required
-            className="form-control"
-            placeholder="邮箱"
-            tabIndex="1"
-            {...email}
-            />
-          <input
-            type="text"
-            required
-            className="form-control"
-            placeholder="用户名"
-            tabIndex="2"
-            {...username}
-            />
-          <input
-            type="password"
-            required
-            className="form-control"
-            placeholder="密码"
-            tabIndex="3"
-            {...password}
-            />
-        </div>
-        <div className="form-group">
-          <button className="btn btn-default" type="submit" tabIndex="4">
-            注册
-          </button>
-        </div>
+      <form className={`${styles} pure-form`} onSubmit={handleSubmit}>
+        <input
+          type="email"
+          required
+          placeholder="邮箱"
+          tabIndex="1"
+          {...email}
+          />
+        <input
+          type="text"
+          required
+          placeholder="用户名"
+          tabIndex="2"
+          {...username}
+          />
+        <input
+          type="password"
+          required
+          placeholder="密码"
+          tabIndex="3"
+          {...password}
+          />
+        <button className="pure-button pure-button-primary" type="submit" tabIndex="4">
+          注册
+        </button>
       </form>
     );
   }

@@ -11,6 +11,8 @@ import { actions as notifActionCreators } from 're-notif';
 import { Terms } from 'components/Terms';
 import { SignupForm } from 'components/SignupForm';
 
+import styles from './styles';
+
 const metaData = {
   title: '注册 - LeanCloud Affiliate',
   description: '',
@@ -41,16 +43,16 @@ export class Signup extends Component {
       );
     } else {
       child = (
-        <div className="container">
+        <div className="container terms-wrapper">
           <Terms />
-          <button className="btn btn-default" onClick={this.props.agreeTerms} tabIndex="1">
+          <button className="pure-button pure-button-primary" onClick={this.props.agreeTerms} tabIndex="1">
             同意
           </button>
         </div>
       );
     }
     return (
-      <section>
+      <section className={`${styles} fill-parent`}>
         <DocumentMeta {...metaData} />
         {child}
       </section>

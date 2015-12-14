@@ -22,28 +22,24 @@ export class LoginForm extends Component {
     } = this.props;
 
     return (
-      <form className={styles} onSubmit={handleSubmit}>
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="用户名/邮箱"
-            tabIndex="1"
-            {...username}
-            />
-          <input
-            type="password"
-            className="form-control"
-            placeholder="密码"
-            tabIndex="2"
-            {...password}
-            />
-        </div>
-        <div className="form-group">
-          <button className="btn btn-default" type="submit" tabIndex="3">
-            登录
-          </button>
-        </div>
+      <form className={`${styles} pure-form`} onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="用户名/邮箱"
+          tabIndex="1"
+          required
+          {...username}
+          />
+        <input
+          type="password"
+          placeholder="密码"
+          tabIndex="2"
+          required
+          {...password}
+          />
+        <button className="pure-button pure-button-primary" type="submit" tabIndex="3">
+          登录
+        </button>
       </form>
     );
   }
