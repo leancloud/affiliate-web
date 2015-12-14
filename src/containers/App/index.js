@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-// import 'bootstrap-webpack';
+import 'purecss';
 import AV from 'avoscloud-sdk';
 
 /* global styles for app */

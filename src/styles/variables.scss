@@ -1,3 +1,36 @@
-
+$content-color: #373737;
 $border: 1px solid #e2e2e2;
-$background-gradient: linear-gradient(0deg, #EEF1F4 0%, #F1EDF2 100%)
+$background-gradient: linear-gradient(0deg, #EEF1F4 0%, #F1EDF2 100%);
+
+// Phone
+//
+//  @media (#{$phone}) {
+//    code-here
+//  }
+//
+$phone: "max-width: 768px";
+
+
+// Tablet
+//
+//  @media (#{$tablet}) {
+//    code-here
+//  }
+//
+$tablet: "min-width: 768px";
+
+
+// Desktop
+//
+//  @media (#{$desktop}) {
+//    code-here
+//  }
+$desktop: "min-width: 992px";
+
+
+// Phone
+//
+//  @media (#{$large-desktop}) {
+//   code-here
+//  }
+$large-desktop: "min-width: 1200px";

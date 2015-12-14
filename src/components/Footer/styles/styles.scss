@@ -3,10 +3,12 @@
 :local(.styles) {
   font-size: 10px;
   color: #666;
-  padding-top: 20px;
-  padding-bottom: 20px;
   text-align: center;
   border-top: $border;
+  
+  ul {
+    margin: 20px 0;
+  }
 
   li {
     display: inline;

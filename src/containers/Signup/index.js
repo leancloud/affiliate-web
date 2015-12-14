@@ -41,7 +41,7 @@ export class Signup extends Component {
       );
     } else {
       child = (
-        <div>
+        <div className="container">
           <Terms />
           <button className="btn btn-default" onClick={this.props.agreeTerms} tabIndex="1">
             同意

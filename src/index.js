@@ -13,7 +13,9 @@ AV.initialize('bkaTfiY3Nc2jLJW7hXRmoFiK', 'FkooEOxbmkmSnlEvTjxPFEiy');
 window.AV = AV;
 
 const store = configureStore();
-const history = createHistory();
+const history = createHistory({
+  queryKey: false
+});
 
 syncReduxAndRouter(history, store);
 
@@ -21,7 +23,6 @@ ReactDOM.render(
   <Provider store={store}>
     <div className="fill-parent">
       <Router history={history}>
-        <Redirect from="/" to="home" />
         {routes}
       </Router>
       <DevTools />

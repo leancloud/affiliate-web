@@ -1,11 +1,12 @@
 /* Typography */
+@import "../../../styles/variables";
 
 body {
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Microsoft Yahei","WenQuanYi Micro Hei",Arial,Verdana,sans-serif;
   font-weight: 300;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #373737;
+  color: $content-color;
 
   .font-logo {
     font-family: radikal, sans-serif;
@@ -19,7 +20,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 300;
+  font-weight: 500;
 }
 
 p {

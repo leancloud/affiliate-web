@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 
 /* containers */
 import { App } from 'containers/App';
@@ -12,7 +12,7 @@ import {requireAuthentication} from 'containers/AuthenticatedComponent';
 
 export default (
   <Route path="/" component={App}>
-    <Route path="home" component={Home} />
+    <IndexRoute component={Home} />
     <Route path="login" component={Login} />
     <Route path="logout" component={Logout} />
     <Route path="signup" component={Signup} />
