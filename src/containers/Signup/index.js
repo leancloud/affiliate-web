@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
-import AV from 'avoscloud-sdk';
 
 import * as userActionCreators from 'actions/user';
 import * as signupActionCreators from 'actions/signup';
@@ -45,7 +44,7 @@ export class Signup extends Component {
       child = (
         <div className="container terms-wrapper">
           <Terms />
-          <button className="pure-button pure-button-primary" onClick={this.props.agreeTerms} tabIndex="1">
+          <button className="pure-button button-primary" onClick={this.props.agreeTerms} tabIndex="1">
             同意
           </button>
         </div>

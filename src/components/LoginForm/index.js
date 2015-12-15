@@ -37,7 +37,7 @@ export class LoginForm extends Component {
           required
           {...password}
           />
-        <button className="pure-button pure-button-primary" type="submit" tabIndex="3">
+        <button className="pure-button button-primary" type="submit" tabIndex="3">
           登录
         </button>
       </form>

@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import DocumentMeta from 'react-document-meta';
-import AV from 'avoscloud-sdk';
 
 import * as userActionCreators from 'actions/user';
 import { actions as notifActionCreators } from 're-notif';
@@ -21,11 +20,7 @@ const metaData = {
 };
 
 @connect(
-  state => {
-    return {
-      user: state.user,
-    }
-  },
+  null,
   dispatch => bindActionCreators({...userActionCreators}, dispatch)
 )
 export class Login extends Component {

@@ -1,0 +1,20 @@
+@import "../../../styles/variables";
+
+:local(.styles) {
+  padding: 20px 0 16px;
+
+  #link {
+    padding-left: 28px;
+    background-image: url(../images/link.png);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 12px 12px;
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+  }
+  button {
+    float: right;
+    min-width: 6em;
+  }
+}

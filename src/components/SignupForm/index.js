@@ -44,7 +44,7 @@ export class SignupForm extends Component {
           tabIndex="3"
           {...password}
           />
-        <button className="pure-button pure-button-primary" type="submit" tabIndex="4">
+        <button className="pure-button button-primary" type="submit" tabIndex="4">
           注册
         </button>
       </form>

@@ -68,11 +68,8 @@ module.exports = {
       test: /\.scss$/,
       loader: 'css!postcss-loader!sass',
     }, {
-      test: /\.png$/,
-      loader: 'file?name=[name].[ext]',
-    }, {
-      test: /\.jpg$/,
-      loader: 'file?name=[name].[ext]',
+      test: /\.(jpg|png)$/,
+      loader: 'url?limit=8192',
     }],
   },
   postcss: function() {

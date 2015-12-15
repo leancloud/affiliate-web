@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import 'purecss';
-import AV from 'avoscloud-sdk';
 
 /* global styles for app */
 import 'style!./styles/app.scss';

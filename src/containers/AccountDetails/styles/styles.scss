@@ -1,0 +1,10 @@
+@import "../../../styles/variables";
+
+:local(.styles) {
+  display: flex;
+  flex-direction: row;
+
+  @media ($phone) {
+    display: block;
+  }
+}

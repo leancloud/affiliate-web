@@ -36,7 +36,7 @@ export function login(fields = {}) {
     });
     loginPromise.then(() => {
       let result = getState().routing.path.match(/[\?&]next=([^&]*)/);
-      let nextPath = result ? result[1] : '/';
+      let nextPath = result ? result[1] : '/account';
       dispatch(updatePath(nextPath));
     }).catch((error) =>
       dispatch(notifActions.notifSend({

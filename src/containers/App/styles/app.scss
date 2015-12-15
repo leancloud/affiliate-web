@@ -19,6 +19,26 @@ ul {
   flex-direction: column;
 }
 
+.clearfix:after {
+    content:"\200B";
+    display:block;
+    height:0;
+    clear:both;
+}
+
+.button-primary {
+  background: $primary;
+  color: white;
+}
+.button-secondary {
+  background: $secondery;
+  color: white;
+}
+.button-success {
+  background: $success;
+  color: white;
+}
+
 :global(body) {
   background-color: $background-color;
   height: 100%;

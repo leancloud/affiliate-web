@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import listensToClickOutside from 'react-onclickoutside/decorator';
 
-import AV from 'avoscloud-sdk';
-
 import * as headerActionCreators from 'actions/header';
 
 import styles from './styles';
@@ -60,7 +58,7 @@ export class Header extends Component {
           <div className="logo font-logo">
             <Link to="/">
               <span className="primary">LeanCloud</span>{' '}
-              <span className="secendery">Affiliate</span>
+              <span className="secondery">Affiliate</span>
             </Link>
           </div>
           <div className="flex"></div>
