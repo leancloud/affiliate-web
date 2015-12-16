@@ -27,9 +27,9 @@ export class App extends Component {
 
   render() {
     return (
-      <section className='wrapper'>
+      <section className='fill-parent'>
         <Header />
-        <div className="main">
+        <div className="fill-parent">
           {this.props.children}
         </div>
         <Footer />

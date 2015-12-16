@@ -1,10 +1,16 @@
 @import "../../../styles/variables";
 
-:local(.styles) {
-  display: flex;
-  flex-direction: row;
 
-  @media ($phone) {
-    display: block;
+:local(.styles) {
+  @media not all and ($phone) {
+    display: flex;
+    flex-direction: row;
+    .side {
+      flex: 2;
+      margin-right: 30px;
+    }
+    .content {
+      flex: 3;
+    }
   }
 }

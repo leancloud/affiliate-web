@@ -13,11 +13,11 @@ import styles from './styles';
 export const AccountDetails = connect()(
   () => (
     <section className={`${styles} container`}>
-      <div style={{flex: 2, marginRight: '30px'}}>
+      <div className="side">
         <PromoteLink/>
         <ReferredUsers/>
       </div>
-      <div style={{flex: 3}}>
+      <div className="content">
         <Withdrawals/>
       </div>
     </section>

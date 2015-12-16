@@ -29,8 +29,10 @@
           margin-bottom: 20px;
         }
       }
-      &.details {
-        flex-basis: 10%;
+      @media not all and (#{$phone}) {
+        &.details {
+          flex-basis: 10%;
+        }
       }
 
       .label {
