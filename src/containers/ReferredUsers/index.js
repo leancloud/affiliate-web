@@ -1,89 +1,76 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import ClipboardButton from 'react-clipboard.js';
 
+import * as accountActionCreators from 'actions/account';
+
+import { Griddle } from 'components/Griddle';
 import { Section } from 'components/Section';
 /* component styles */
 import styles from './styles';
 
+const columnMeta = [
+  {
+    columnName: 'userName',
+    order: 1,
+    cssClassName: 'name',
+    customComponent: (props) => (
+      <div>
+        <div>{props.data}</div>
+        <div className="info">{props.rowData.registerAt.toLocaleDateString()} 加入</div>
+      </div>
+    )
+  },{
+    columnName: 'totalPayment',
+    order: 2,
+    cssClassName: 'payment',
+    customComponent: (props) => (
+      props.data
+        ? <span><span className="amount">{props.data.toFixed(2)}</span> 元</span>
+        : <span>暂无消费</span>
+    )
+  },
+];
+
 @connect(
   status => ({
-    user: status.user,
-    account: status.account,
+    referredUsers: status.account.referredUsers,
   }),
-  dispatch => bindActionCreators({}, dispatch)
+  dispatch => bindActionCreators({
+    ...accountActionCreators,
+  }, dispatch)
 )
 export class ReferredUsers extends Component {
-  constructor () {
-    super();
-    this.state = {};
+  componentDidMount () {
+    this.props.fetchReferredUsers();
   }
   render () {
     const {
-      user,
-      account,
+      referredUsers,
     } = this.props;
-    let buttonState;
-    let buttonText;
-    switch (this.state.copied) {
-      case 0:
-        buttonState = 'success';
-        buttonText = '✓ 已复制'
-        break;
-      case 1:
-        buttonState = 'secondary';
-        buttonText = /Mac/i.test(navigator.userAgent)
-          ? '按 ⌘-C 复制'
-          : '按 Ctrl-C 复制'
-        break;
-      default:
-        buttonState = 'secondary';
-        buttonText = '复制';
+    let users = referredUsers.map(user => ({
+      userName: user.userName,
+      registerAt: new Date(user.registerAt.iso),
+      totalPayment: user.totalPayment,
+    }));
+    if (users.length > 0) {
+      return (
+        <Section title="朋友们" className={`${styles}`}>
+          <Griddle results={users}
+                   columnMetadata={columnMeta}
+                   pagerClassName="pager"/>
+        </Section>
+      );
+    } else {
+      return (
+        <Section title="朋友们" className={`${styles}`}>
+          <div className="no-user">
+            您在 LeanCloud 推荐联盟的收益与你的朋友们在 LeanCloud 的活动息息相关。看看哪些朋友对您的小金库做出了贡献吧。
+            <image src={require('./images/no_user.png')}/>
+            暂时还没有人出现在这里，不过他们好像发现了了不起的东西。
+          </div>
+        </Section>
+      );
     }
-    const link = `https://leancloud.cn/?source=${user.promoteCode}`;
-    return (
-      <Section title="推荐链接">
-        <form className={`${styles} pure-form clearfix`}>
-          您的推荐链接是：
-          <input type="url"
-                 readOnly
-                 value={link}
-                 id='link'
-                 ref={ref => this.linkInput = ref}
-                 onMouseOver={this.select.bind(this)}/>
-          <ClipboardButton data-clipboard-text={link}
-                     onSuccess={this.onCopySuccess.bind(this)}
-                     onError={this.onCopyError.bind(this)}
-                     className={`button-${buttonState} pure-button`}>
-            {buttonText}
-          </ClipboardButton>
-        </form>
-      </Section>
-    );
   }
-
-  select () {
-    this.linkInput.select();
-  }
-
-  onCopySuccess (e) {
-    clearTimeout(this.timeout);
-    this.setState({
-      copied: 0
-    });
-    this.timeout = setTimeout(() => {
-      this.setState({
-        copied: undefined
-      });
-    }, 5000);
-  }
-
-  onCopyError (e) {
-    this.select();
-    this.setState({
-      copied: 1
-    });
-  }
-
 };

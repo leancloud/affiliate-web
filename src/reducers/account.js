@@ -1,12 +1,19 @@
-export function account(state = {}, action) {
+import { combineReducers } from 'redux'
+
+function referredUsers(state = [], action) {
   switch (action.type) {
-    case 'TOGGLE_HEADER_MENU':
-      return {
-        ...state,
-        menuOnshow: !state.menuOnshow,
-      };
+    case 'FETCH_REFERRED_USERS_FULFILLED':
+      return action.payload.map(user => user.toJSON());
+
+    case 'LOGOUT':
+      return [];
 
     default:
       return state;
   }
 }
+
+export const account = combineReducers({
+  referredUsers,
+
+});

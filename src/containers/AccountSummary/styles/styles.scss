@@ -2,7 +2,6 @@
 
 :local(.styles) {
   background: $background-gradient;
-  border-bottom: $border;
 
   > div {
     align-items: center;
@@ -49,7 +48,7 @@
       }
 
       .info {
-        color: #B4B4B4;
+        color: $info-color;
       }
     }
   }

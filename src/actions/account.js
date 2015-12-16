@@ -1,11 +1,20 @@
-export function startWithdraw() {
+import AV from 'avoscloud-sdk';
+
+export function fetchReferredUsers() {
+  var query = new AV.Query('ReferredUser')
+    .equalTo('inviter', AV.User.current())
+    .descending('totalPayment');
+
   return {
-    type: 'TOGGLE_HEADER_MENU',
+    type: 'FETCH_REFERRED_USERS',
+    payload: {
+      promise: query.find(),
+    }
   };
 }
 
-export function hideMenu() {
+export function fetchWithdrawal() {
   return {
-    type: 'HIDE_HEADER_MENU',
+    type: 'FETCH_WITHDRAWAL',
   };
 }

@@ -2,12 +2,16 @@
 
 
 :local(.styles) {
+  border-top: $border;
+
   @media not all and ($phone) {
-    display: flex;
-    flex-direction: row;
+    > div {
+      display: flex;
+      flex-direction: row;
+    }
     .side {
       flex: 2;
-      margin-right: 30px;
+      margin-right: 24px;
     }
     .content {
       flex: 3;

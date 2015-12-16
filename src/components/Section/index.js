@@ -5,7 +5,7 @@ import styles from './styles';
 
 export function Section (props) {
   return (
-    <section className={`${styles}`}>
+    <section className={`${styles} ${props.className || ''}`}>
       <h3>{props.title}</h3>
       {props.children}
     </section>

@@ -1,20 +1,42 @@
 @import "../../../styles/variables";
 
 :local(.styles) {
-  padding: 20px 0 16px;
+  position: relative;
 
-  #link {
-    padding-left: 28px;
-    background-image: url(../images/link.png);
-    background-repeat: no-repeat;
-    background-position: 10px center;
-    background-size: 12px 12px;
-    display: block;
-    width: 100%;
-    margin: 12px 0;
+  .name {
+    padding: 10px 24px;
+    font-size: 15px;
   }
-  button {
-    float: right;
-    min-width: 6em;
+  .info {
+    color: $info-color;
+    font-size: 10px;
+  }
+  .payment {
+    padding-right: 40px;
+    text-align: right;
+    font-size: 13px;
+    .amount {
+      font-size: 16px;
+    }
+  }
+
+  // caution: magic
+  .griddle-footer {
+    position: absolute;
+    top: 15px;
+    right: 24px;
+  }
+
+  .no-user {
+    color: $info-color;
+    text-align: center;
+    padding: 20px 0;
+    >img {
+      width: 100%;
+      padding: 20px 24px;
+      max-width: 400px;
+      display: block;
+      margin: 0 auto;
+    }
   }
 }
