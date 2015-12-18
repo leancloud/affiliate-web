@@ -1,13 +1,17 @@
-var static = require('node-static');
+var express = require('express');
+var app = express();
+var AV = require('leanengine');
 
-var fileServer = new static.Server('.');
+var APP_ID = process.env.LC_APP_ID; // your app id
+var APP_KEY = process.env.LC_APP_KEY; // your app key
+var MASTER_KEY = process.env.LC_APP_MASTER_KEY; // your app master key
 
-require('http').createServer(function (request, response) {
-  request.addListener('end', function () {
-    fileServer.serve(request, response, function (e, res) {
-      if (e && (e.status === 404)) { // If the file wasn't found
-        fileServer.serveFile('/404.html', 404, {}, request, response);
-      }
-    });
-  }).resume();
-}).listen(parseInt(process.env.LC_APP_PORT || 3000, 10));
+AV.initialize(APP_ID, APP_KEY, MASTER_KEY);
+
+app.use(AV.Cloud);
+app.use(express.static('.'));
+app.use(function(req, res, next) {
+  res.status(404).sendFile(__dirname + '/404.html');
+});
+
+app.listen(parseInt(process.env.LC_APP_PORT || 3000, 10));

@@ -69,8 +69,9 @@
   },
   "dependencies": {
     "avoscloud-sdk": "1.0.0-rc5",
+    "express": "^4.13.3",
     "griddle-react": "^0.3.0",
-    "node-static": "^0.7.7",
+    "leanengine": "^0.2.0",
     "purecss": "^0.6.0",
     "re-notif": "^1.0.2",
     "react": "^0.14.2",
