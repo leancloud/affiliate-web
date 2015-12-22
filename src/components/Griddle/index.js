@@ -6,7 +6,7 @@ import styles from './styles';
 
 const Pager = (props) => {
   if (props.maxPage <= 1) {
-    return '';
+    return <div></div>;
   }
 
   var previous = "";
