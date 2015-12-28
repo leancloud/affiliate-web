@@ -10,6 +10,7 @@ after_success:
       git checkout master;
       git config user.name "leancloud-bot";
       git config user.email "ci@leancloud.rocks";
+      cp favicon.icon dist;
       git add dist -f;
       git commit -m "Deploy to GitHub Pages [skip ci]";
       git push -qf https://${TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git master:gh-pages;
