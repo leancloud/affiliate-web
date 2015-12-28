@@ -2,6 +2,7 @@ import AV from 'avoscloud-sdk';
 
 export function fetchReferredUsers() {
   var query = new AV.Query('ReferredUser')
+    .limit(999)
     .equalTo('inviter', AV.User.current())
     .descending('totalPayment');
 
@@ -13,9 +14,17 @@ export function fetchReferredUsers() {
   };
 }
 
-export function fetchWithdrawal() {
+export function fetchWithdrawals() {
+  var query = new AV.Query('Withdrawal')
+    .limit(999)
+    .equalTo('user', AV.User.current())
+    .descending('createdAt');
+
   return {
     type: 'FETCH_WITHDRAWAL',
+    payload: {
+      promise: query.find(),
+    }
   };
 }
 

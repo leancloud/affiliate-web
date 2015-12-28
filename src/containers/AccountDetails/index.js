@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 
 import { PromoteLink } from 'containers/PromoteLink';
 import { ReferredUsers } from 'containers/ReferredUsers';
-// import { Withdrawals } from 'containers/Withdrawals';
-
-let Withdrawals = ReferredUsers;
+import { Withdrawals } from 'containers/Withdrawals';
 
 import styles from './styles';
 

@@ -1,0 +1,47 @@
+@import "../../../styles/variables";
+
+:local(.styles) {
+  line-height: 1.6;
+  .time {
+    padding: 12px 0;
+    text-align: center;
+  }
+  .state {
+    font-size: 16px;
+    .fail {
+      color: $error;
+    }
+    .success {
+      color: $success;
+    }
+    .note {
+      font-size: 14px;
+    }
+  }
+  .info {
+    color: $info-color;
+  }
+  .amount {
+    text-align: right;
+    font-size: 13px;
+    .figure {
+      font-size: 16px;
+    }
+  }
+  .payment {
+    text-align: center;
+  }
+
+  .empty {
+    color: $info-color;
+    text-align: center;
+    padding: 20px 0;
+    >img {
+      width: 100%;
+      padding: 20px 24px;
+      max-width: 409px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
