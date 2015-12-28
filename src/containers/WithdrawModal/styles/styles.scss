@@ -27,7 +27,7 @@
     z-index: 1;
     width: 100%;
     max-width: 720px;
-    overflow: scroll;
+    overflow: auto;
     padding: 12px 24px;
     background: $background-color;
 
@@ -141,7 +141,7 @@
       text-align: right;
       button {
         min-width: 6em;
-        margin-left: 8px;
+        margin: 0 0 0 8px;
       }
     }
   }

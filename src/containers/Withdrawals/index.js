@@ -11,7 +11,7 @@ import styles from './styles';
 
 const STATES = {
   init: '处理中',
-  success: '成功',
+  success: '完成',
   fail: '失败'
 };
 
@@ -38,14 +38,14 @@ const columnMeta = [
     )
   },{
     columnName: 'amount',
-    order: 3,
+    order: 4,
     cssClassName: 'amount',
     customComponent: (props) => (
       <span><span className="figure">{props.data.toFixed(2)}</span> 元</span>
     )
   },{
     columnName: 'alipayId',
-    order: 4,
+    order: 3,
     cssClassName: 'payment',
     customComponent: (props) => (
       <span className="info">支付宝({props.data})</span>
@@ -76,16 +76,7 @@ export class Withdrawals extends Component {
       alipayId: withdrawal.alipayId,
       note: withdrawal.note
     }));
-    if (withdrawals2show.length > 0) {
-      return (
-        <Section title="提现记录" className={`${styles}`}>
-          <Griddle results={withdrawals2show}
-                   columnMetadata={columnMeta}
-                   columns={['time', 'state', 'amount', 'alipayId']}
-                   resultsPerPage="100"/>
-        </Section>
-      );
-    } else {
+    if (withdrawals2show.length === 0) {
       return (
         <Section title="提现记录" className={`${styles}`}>
           <div className="empty">
@@ -93,6 +84,33 @@ export class Withdrawals extends Component {
             没有提现记录
           </div>
         </Section>
+      );
+    } else {
+      let withdrawalsInProcess = withdrawals2show.filter(
+        withdrawal => withdrawal.state === 'init'
+      );
+      let withdrawalsRecords = withdrawals2show.filter(
+        withdrawal => withdrawal.state !== 'init'
+      );
+      return (
+        <div>
+          { withdrawalsInProcess && (
+            <Section title="处理中的提现" className={`${styles}`}>
+              <Griddle results={withdrawalsInProcess}
+                       columnMetadata={columnMeta}
+                       columns={['time', 'state', 'amount', 'alipayId']}
+                       resultsPerPage="100"/>
+            </Section>
+          )}
+          { withdrawalsInProcess && (
+            <Section title="历史提现" className={`${styles}`}>
+              <Griddle results={withdrawalsRecords}
+                       columnMetadata={columnMeta}
+                       columns={['time', 'state', 'amount', 'alipayId']}
+                       resultsPerPage="100"/>
+            </Section>
+          )}
+        </div>
       );
     }
   }
