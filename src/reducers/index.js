@@ -6,9 +6,15 @@ import { user } from './user';
 import { header } from './header';
 import { sign } from './sign';
 import { account } from './account';
+import { withdrawModal } from './withdrawModal';
 
 const rootReducer = combineReducers({
-  form: formReducer,
+  form: formReducer.normalize({
+    withdraw: {
+      // redux 得到的类型是 string，转换为 number
+      amount: value => value && Number(value)
+    }
+  }),
   routing: routeReducer,
   /* your reducers */
   notifs: notifReducer,
@@ -16,6 +22,7 @@ const rootReducer = combineReducers({
   header,
   sign,
   account,
+  withdrawModal,
 });
 
 export default rootReducer;

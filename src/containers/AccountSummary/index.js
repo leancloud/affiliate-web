@@ -30,12 +30,14 @@ export class AccountSummary extends Component {
             title={`更新时间：${updateTime}`}>
             <div>
               <div className="label">账户余额：</div>
-              <strong>{(user.get('commission') || 0).toFixed(2)}</strong> 元
+              <strong>
+                {((user.get('commission') || 0) - (user.get('totalWithdrawal') || 0)).toFixed(2)}
+              </strong> 元
             </div>
           </div>
           <div className="details">
             <div>
-              <div className="label">您本月还可以取现：</div>
+              <div className="label">您本月还可以提现：</div>
               <strong>1</strong> 次
               <span className="info">（每月 1 日刷新）</span>
             </div>

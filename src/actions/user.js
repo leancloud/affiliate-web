@@ -6,15 +6,6 @@ const LOGIN_ERROR_MESSAGES = {
   '211': '该用户不存在'
 };
 
-function _login(fields = {}) {
-  return {
-    type: 'LOGIN',
-    payload: {
-      promise: AV.User.logIn(username, password),
-    }
-  };
-}
-
 export function logout() {
   AV.User.logOut();
   return {

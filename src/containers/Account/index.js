@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { AccountSummary } from '../AccountSummary';
 import { AccountDetails } from '../AccountDetails';
+import { WithdrawModal } from '../WithdrawModal';
 
 const metaData = {
   title: '账户 - LeanCloud Affiliate',
@@ -19,6 +20,7 @@ export const Account = connect()(
       <DocumentMeta {...metaData} />
       <AccountSummary/>
       <AccountDetails/>
+      <WithdrawModal/>
     </section>
   )
 );

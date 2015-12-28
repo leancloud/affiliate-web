@@ -1,0 +1,148 @@
+@import "../../../styles/variables";
+
+:local(.styles) {
+  background: rgba(153,153,153,.9);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  >.mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+  }
+  >.modal-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 720px;
+    overflow: scroll;
+    padding: 12px 24px;
+    background: $background-color;
+
+    .steps {
+      padding: 8px 0 8px 2em;
+      font-size: 16px;
+      line-height: 200%;
+      color: $info-color;
+      border-bottom: $border;
+      li {
+        margin-right: 3.5em;
+        float: left;
+        &.active {
+          color: $content-color;
+        }
+      }
+    }
+
+    @media not all and (max-width: 720px) {
+      margin: 10px 0;
+      border-radius: 2px;
+    }
+
+    .content {
+      margin: 20px 0;
+      min-height: 80px;
+      &.apply-content {
+        display: flex;
+        @media ($phone-portrait) {
+          flex-direction: column;
+        }
+
+        >div {
+          padding: 8px 20px;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          border: $border;
+          border-radius: 3px;
+          background: #fff;
+          &:not(:last-child) {
+            @media ($phone-portrait) {
+              margin-bottom: 20px;
+            }
+            @media not all and ($phone-portrait) {
+              margin-right: 20px;
+            }
+          }
+
+          label {
+            display: block;
+            margin-top: 12px;
+          }
+
+          .input-container {
+            margin: 10px 0 12px;
+            width: 100%;
+            display: flex;
+            &.amount {
+              font-size: 1.5em;
+            }
+
+            input,
+            .currency-unit {
+              line-height: 2.8em;
+            }
+            input {
+              flex: 1;
+              background-color: #fafafa;
+              display: block;
+              padding-top: 0;
+              padding-bottom: 0;
+              margin: 0;
+              border-radius: 3px 0 0 3px;
+              &:focus {
+                background-color: #fff;
+              }
+            }
+            .currency-unit {
+              padding: 0 .8em;
+              border: $border;
+              border-radius: 3px;
+              border-left: 0;
+              border-radius: 0 3px 3px 0;
+            }
+            img.alipay {
+              padding: 10px;
+              box-sizing: content-box;
+              border: 1px solid $primary;
+              border-radius: 3px;
+            }
+          }
+        }
+      }
+      &.confirm,
+      &.info {
+        font-size: 1.3em;
+        li {
+          margin: .5em 0;
+        }
+      }
+      &.info {
+        text-align: center;
+      }
+    }
+
+    .buttons {
+      margin: 8px 0;
+      text-align: right;
+      button {
+        min-width: 6em;
+        margin-left: 8px;
+      }
+    }
+  }
+}

@@ -18,3 +18,9 @@ export function fetchWithdrawal() {
     type: 'FETCH_WITHDRAWAL',
   };
 }
+
+export function startWithdraw() {
+  return {
+    type: 'WITHDRAW_START',
+  }
+}
