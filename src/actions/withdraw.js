@@ -1,5 +1,6 @@
 import AV from 'avoscloud-sdk';
 import { fetchWithdrawals } from './account';
+import { updateUser } from './user';
 const Withdrawal = AV.Object.extend('Withdrawal');
 
 export function submitWithdrawApply(fields = {}) {
@@ -33,6 +34,7 @@ export function finish() {
       type: 'WITHDRAW_FINISHED'
     });
     dispatch(fetchWithdrawals());
+    dispatch(updateUser());
   }
 }
 

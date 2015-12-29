@@ -76,7 +76,7 @@ export class Withdrawals extends Component {
       alipayId: withdrawal.alipayId,
       note: withdrawal.note
     }));
-    if (withdrawals2show.length === 0) {
+    if (withdrawals2show === 0) {
       return (
         <Section title="提现记录" className={`${styles}`}>
           <div className="empty">
@@ -94,7 +94,7 @@ export class Withdrawals extends Component {
       );
       return (
         <div>
-          { withdrawalsInProcess && (
+          { withdrawalsInProcess.length > 0 && (
             <Section title="处理中的提现" className={`${styles}`}>
               <Griddle results={withdrawalsInProcess}
                        columnMetadata={columnMeta}
@@ -102,7 +102,7 @@ export class Withdrawals extends Component {
                        resultsPerPage="100"/>
             </Section>
           )}
-          { withdrawalsInProcess && (
+          { withdrawalsRecords.length > 0 && (
             <Section title="历史提现" className={`${styles}`}>
               <Griddle results={withdrawalsRecords}
                        columnMetadata={columnMeta}
