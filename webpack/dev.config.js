@@ -53,7 +53,7 @@ module.exports = {
       loader: 'url?limit=10000&mimetype=image/svg+xml',
     }, {
       test: /\.js$/,
-      loaders: ['react-hot', 'babel?stage=0&loose[]=es6.modules'],
+      loaders: ['react-hot', 'babel-loader'],
       exclude: /node_modules/,
     }, {
       test: /\.css$/,
@@ -66,7 +66,8 @@ module.exports = {
       loader: 'url?limit=8192',
     }],
   },
-  postcss: function() {
-    return [autoprefixer({ browsers: ['last 2 versions', 'safari 5', 'ie 9', 'ios 6', 'android 4'] }), csswring];
-  },
+
+  postcss: [
+    autoprefixer({ browsers: ['last 2 versions'] })
+  ]
 };
