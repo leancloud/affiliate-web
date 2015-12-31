@@ -204,7 +204,7 @@ class Result extends Component {
             {error.message}
           </div>
           <div className="buttons">
-            <button className="pure-button button-primary" tabIndex="1" onClick={back}>
+            <button className="pure-button button-primary" tabIndex="1" onClick={() => back(2)}>
               返回修改
             </button>
           </div>
