@@ -9,10 +9,12 @@ import * as accountActionCreators from 'actions/account';
 
 import styles from './styles';
 
+const MAX_WITHDRAW_TIMES = 5;
+
 @connect(
   state => ({
     user: state.user,
-    account: state.account,
+    withdrawals: state.account.withdrawals,
   }),
   dispatch => bindActionCreators({...accountActionCreators}, dispatch)
 )
@@ -23,6 +25,19 @@ export class AccountSummary extends Component {
     updateTime = (updateTime && updateTime.toLocaleString)
       ? updateTime.toLocaleString()
       : '未知';
+
+    let monthStartTime = new Date();
+    monthStartTime.setDate(1);
+    monthStartTime.setHours(0);
+    monthStartTime.setMinutes(0);
+    monthStartTime.setSeconds(0);
+    monthStartTime.setMilliseconds(0);
+    const withdrawalsThisMonth = this.props.withdrawals.filter(withdrawal =>
+      new Date(withdrawal.createdAt) >= monthStartTime
+      && withdrawal.state !== 'fail'
+    );
+    const timesLeft = Math.max(0, MAX_WITHDRAW_TIMES - withdrawalsThisMonth.length);
+
     return (
       <section className={`${styles}`}>
         <div className="container">
@@ -38,13 +53,14 @@ export class AccountSummary extends Component {
           <div className="details">
             <div>
               <div className="label">您本月还可以提现：</div>
-              <strong>1</strong> 次
+              <strong>{timesLeft}</strong> 次
               <span className="info">（每月 1 日刷新）</span>
             </div>
           </div>
           <div>
             <div>
               <button className="pure-button button-primary"
+                      disabled={!timesLeft}
                       onClick={this.props.startWithdraw}>
                 提现
               </button>
