@@ -8,9 +8,12 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    padding-top: 22px;
+    padding-bottom: 12px;
     > button {
-      font-size: 120%;
-      margin: 20px 0;
+      font-size: 130%;
+      min-width: 5em;
+      margin: 36px 0;
     }
   }
 }
