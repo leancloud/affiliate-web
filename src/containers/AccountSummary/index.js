@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
 import * as accountActionCreators from 'actions/account';
+import { WithdrawModal } from '../WithdrawModal';
 
 /* components */
 
@@ -15,6 +16,7 @@ const MAX_WITHDRAW_TIMES = 5;
   state => ({
     user: state.user,
     withdrawals: state.account.withdrawals,
+    withdrawModal: state.withdrawModal,
   }),
   dispatch => bindActionCreators({...accountActionCreators}, dispatch)
 )
@@ -67,6 +69,9 @@ export class AccountSummary extends Component {
             </div>
           </div>
         </div>
+        {
+          this.props.withdrawModal.step ? <WithdrawModal/> : ''
+        }
       </section>
     );
   }

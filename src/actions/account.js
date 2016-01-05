@@ -31,5 +31,5 @@ export function fetchWithdrawals() {
 export function startWithdraw() {
   return {
     type: 'WITHDRAW_START',
-  }
+  };
 }

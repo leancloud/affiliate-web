@@ -36,7 +36,7 @@ export function login(fields = {}) {
         dismissAfter: 5000,
       }))
     )
-  }
+  };
 }
 
 export function signup(fields = {}) {
@@ -72,7 +72,7 @@ export function signup(fields = {}) {
         dismissAfter: 5000,
       }))
     )
-  }
+  };
 }
 
 export function updateUser() {
@@ -90,5 +90,24 @@ export function updateUser() {
         })
       );
     }
-  }
+  };
+}
+
+export function requestEmailVerify() {
+  return (dispatch, getState) => {
+    const email = getState().user.email;
+    AV.User.requestEmailVerify(email).then(() =>
+      dispatch(notifActions.notifSend({
+        message: '验证邮件发送成功',
+        kind: 'success',
+        dismissAfter: 2000,
+      }))
+    ).catch((error) =>
+      dispatch(notifActions.notifSend({
+        message: LOGIN_ERROR_MESSAGES[error.code] || error.message,
+        kind: 'danger',
+        dismissAfter: 5000,
+      }))
+    )
+  };
 }

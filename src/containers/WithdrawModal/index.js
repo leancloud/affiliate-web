@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { reduxForm } from 'redux-form';
 
+import { requireVerification } from 'containers/VerifiedComponent';
 import * as withdrawActionCreators from 'actions/withdraw';
+import { Modal } from 'components/Modal';
 
 /* components */
 
@@ -17,6 +19,10 @@ import styles from './styles';
   }),
   dispatch => bindActionCreators({...withdrawActionCreators}, dispatch)
 )
+@requireVerification({
+  onCancel: props => props.cancel(),
+  hint: '为了您的资金安全，验证邮件地址后才能申请提现。'
+})
 export class WithdrawModal extends Component {
   render() {
     let {
@@ -26,31 +32,27 @@ export class WithdrawModal extends Component {
       },
       cancel
     } = this.props;
-    if (step === 0) {
-      return <div></div>;
-    } else {
-      step = step - 1;
-      let steps = ['提现申请', '确认', '完成'];
-      let stepsClassNames = new Array(steps.length).fill('');
-      stepsClassNames[step] = 'active';
-      return (
-        <div className={`fill-parent ${styles}`}>
-          <div className="mask" onClick={cancel}></div>
-          <div className="modal-container">
-            <ol className="steps clearfix">
-              {steps.map((text, i) => (
-                <li className={stepsClassNames[i]} key={i}>{text}</li>
-              ))}
-            </ol>
-            {[
-              <Apply/>,
-              <Confirm/>,
-              <Result/>
-            ][step]}
-          </div>
-        </div>
-      );
-    }
+
+    step = step - 1;
+    let steps = ['提现申请', '确认', '完成'];
+    let stepsClassNames = new Array(steps.length).fill('');
+    stepsClassNames[step] = 'active';
+    return (
+      <Modal
+        containerClassName={`${styles}`}
+        onClose={cancel}>
+        <ol className="steps clearfix">
+          {steps.map((text, i) => (
+            <li className={stepsClassNames[i]} key={i}>{text}</li>
+          ))}
+        </ol>
+        {[
+          <Apply/>,
+          <Confirm/>,
+          <Result/>
+        ][step]}
+      </Modal>
+    );
   }
 }
 
