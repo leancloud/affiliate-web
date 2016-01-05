@@ -49,10 +49,10 @@ export class PromoteLink extends Component {
                  value={link}
                  id='link'
                  ref={ref => this.linkInput = ref}
-                 onMouseOver={this.select.bind(this)}/>
+                 onMouseOver={this.select}/>
           <ClipboardButton data-clipboard-text={link}
-                     onSuccess={this.onCopySuccess.bind(this)}
-                     onError={this.onCopyError.bind(this)}
+                     onSuccess={this.onCopySuccess}
+                     onError={this.onCopyError}
                      className={`button-${buttonState} pure-button`}>
             {buttonText}
           </ClipboardButton>
@@ -61,11 +61,11 @@ export class PromoteLink extends Component {
     );
   }
 
-  select () {
+  select = () => {
     this.linkInput.select();
   }
 
-  onCopySuccess (e) {
+  onCopySuccess = (e) => {
     clearTimeout(this.timeout);
     this.setState({
       copied: 0
@@ -77,7 +77,7 @@ export class PromoteLink extends Component {
     }, 5000);
   }
 
-  onCopyError (e) {
+  onCopyError = (e) => {
     this.select();
     this.setState({
       copied: 1
