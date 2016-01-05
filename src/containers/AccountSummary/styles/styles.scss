@@ -3,7 +3,7 @@
 :local(.styles) {
   background: $background-gradient;
 
-  > div {
+  > div.container {
     align-items: center;
     display: flex;
     padding-top: 30px;
