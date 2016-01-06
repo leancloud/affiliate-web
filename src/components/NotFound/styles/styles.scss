@@ -1,0 +1,14 @@
+@import "../../../styles/variables";
+
+:local(.styles) {
+  text-align: center;
+  justify-content: center;
+  font-size: 28px;
+  .morse {
+    color: $border-color;
+    font-size: 40px;
+    line-height: .8;
+    font-family: radikal, sans-serif;
+    white-space: pre-wrap;
+  }
+}

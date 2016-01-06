@@ -8,6 +8,7 @@ import { Login } from 'containers/Login';
 import { Logout } from 'containers/Logout';
 import { Signup } from 'containers/Signup';
 import { Account } from 'containers/Account';
+import { NotFound } from 'components/NotFound';
 import { requireAuthentication } from 'containers/AuthenticatedComponent';
 
 export default (
@@ -17,5 +18,6 @@ export default (
     <Route path="logout" component={Logout} />
     <Route path="signup" component={Signup} />
     <Route path="account" component={requireAuthentication(Account)} />
+    <Route path="*" component={NotFound} />
   </Route>
 );
