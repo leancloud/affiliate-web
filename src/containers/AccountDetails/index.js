@@ -5,7 +5,7 @@ import { PromoteLink } from 'containers/PromoteLink';
 import { ReferredUsers } from 'containers/ReferredUsers';
 import { Withdrawals } from 'containers/Withdrawals';
 
-import styles from './styles';
+import { styles } from './styles.scss';
 
 export const AccountDetails = connect()(
   props => (

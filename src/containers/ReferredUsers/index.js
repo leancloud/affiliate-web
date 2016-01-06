@@ -7,7 +7,7 @@ import * as accountActionCreators from 'actions/account';
 import { Griddle } from 'components/Griddle';
 import { Section } from 'components/Section';
 /* component styles */
-import styles from './styles';
+import { styles } from './styles.scss';
 
 const columnMeta = [
   {

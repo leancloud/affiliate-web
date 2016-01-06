@@ -27,7 +27,7 @@ module.exports = {
   ],
 
   resolve: {
-    extensions: ['', '.jsx', '.js', '.json'],
+    extensions: ['', '.jsx', '.js', '.json', '.scss'],
     modulesDirectories: ['node_modules', 'src'],
   },
 
@@ -59,7 +59,7 @@ module.exports = {
       loader: 'style!css?localIdentName=[path]!postcss-loader',
     }, {
       test: /\.scss$/,
-      loader: 'css?localIdentName=[path]!postcss-loader!sass',
+      loader: 'style!css?localIdentName=[path][name]--[local]!postcss-loader!sass',
     }, {
       test: /\.(jpg|png)$/,
       loader: 'url?limit=8192',

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 
 /* component styles */
-import styles from './styles';
+import { styles } from './styles.scss';
 
 @reduxForm({
   form: 'login',

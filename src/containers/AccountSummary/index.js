@@ -8,7 +8,7 @@ import { WithdrawModal } from '../WithdrawModal';
 
 /* components */
 
-import styles from './styles';
+import { styles } from './styles.scss';
 
 const MAX_WITHDRAW_TIMES = 5;
 

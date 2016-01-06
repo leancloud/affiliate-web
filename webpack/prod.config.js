@@ -33,7 +33,7 @@ module.exports = {
   ],
 
   resolve: {
-    extensions: ['', '.jsx', '.js', '.json'],
+    extensions: ['', '.jsx', '.js', '.json', '.scss'],
     modulesDirectories: ['node_modules', 'src'],
   },
 
@@ -65,13 +65,13 @@ module.exports = {
       loader: 'style!css!postcss-loader',
     }, {
       test: /\.scss$/,
-      loader: 'css!postcss-loader!sass',
+      loader: 'style!css!postcss-loader!sass',
     }, {
       test: /\.(jpg|png)$/,
       loader: 'url?limit=8192',
     }],
   },
-  
+
   postcss: [
     autoprefixer({ browsers: ['last 2 versions'] })
   ]

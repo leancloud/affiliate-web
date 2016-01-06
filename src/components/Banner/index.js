@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 /* component styles */
-import styles from './styles';
+import { styles } from './styles.scss';
 
 export function Banner (props) {
   return (

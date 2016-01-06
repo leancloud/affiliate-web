@@ -9,7 +9,7 @@ import * as userActionCreators from 'actions/user';
 
 /* components */
 
-import styles from './styles';
+import { styles } from './styles.scss';
 
 @connect(
   state => ({

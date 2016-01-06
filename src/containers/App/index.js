@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import 'purecss';
 
 /* global styles for app */
-import 'style!./styles/app.scss';
+import './styles/app.scss';
 
 /* application components */
 import { Notifs } from 're-notif';

@@ -9,7 +9,7 @@ import { actions as notifActionCreators } from 're-notif';
 /* components */
 import { LoginForm } from 'components/LoginForm';
 
-import styles from './styles';
+import { styles } from './styles.scss';
 
 const metaData = {
   title: '登录 - LeanCloud Affiliate',

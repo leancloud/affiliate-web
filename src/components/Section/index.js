@@ -1,7 +1,7 @@
 import React from 'react';
 
 /* component styles */
-import styles from './styles';
+import { styles } from './styles.scss';
 
 export function Section (props) {
   return (

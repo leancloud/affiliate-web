@@ -10,7 +10,7 @@ import { Modal } from 'components/Modal';
 
 /* components */
 
-import styles from './styles';
+import { styles } from './styles.scss';
 
 @connect(
   state => ({

@@ -1,0 +1,83 @@
+@import "../../styles/variables";
+
+:local(.styles) {
+  width: 100%;
+  line-height: 60px;
+  border-bottom: $border;
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  a, .item {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 15px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .05);
+    }
+  }
+
+  .logo {
+    font-size: 1.5em;
+    margin-left: -15px;
+    .primary {
+      color: $primary;
+    }
+    .secondery {
+      color: $secondery;
+    }
+  }
+
+  .flex {
+    flex: 1;
+  }
+
+  .userinfo {
+    position: relative;
+    z-index: 10;
+    nav {
+      position: absolute;
+      display: block;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      min-width: 6em;
+      padding: 5px 0;
+      line-height: 40px;
+      background-color: #FFF;
+      border: $border;
+      box-shadow: 0 10px 40px rgba(0,0,0,.06);
+      a {
+        display: block;
+      }
+    }
+  }
+
+  .toggle-arrow {
+    display: inline-block;
+    vertical-align: middle;
+    height: 0;
+    width: 0;
+    margin-left: 4px;
+    border: 4px solid transparent;
+    border-bottom-width: 0;
+    border-top-color: #000;
+    &.open {
+      border-top-width: 0;
+      border-top-color: transparent;
+      border-bottom-color: #000;
+      border-bottom-width: 4px;
+    }
+  }
+
+  nav {
+    a {
+      &.active {
+        display: none;
+      }
+    }
+  }
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import OriginalGriddle from 'griddle-react';
 
 /* component styles */
-import styles from './styles';
+import { styles } from './styles.scss';
 
 const Pager = (props) => {
   if (props.maxPage <= 1) {

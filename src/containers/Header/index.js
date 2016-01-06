@@ -7,7 +7,7 @@ import listensToClickOutside from 'react-onclickoutside/decorator';
 
 import * as headerActionCreators from 'actions/header';
 
-import styles from './styles';
+import { styles } from './styles.scss';
 
 @connect(
   state => {
