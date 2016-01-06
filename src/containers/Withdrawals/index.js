@@ -98,7 +98,7 @@ export class Withdrawals extends Component {
       );
       const rowMetadata = {
         bodyCssClassName: (rowData) =>
-          '#' + rowData.id === this.context.location.hash ? 'active' : ''
+          ('#' + rowData.id === this.context.location.hash ? 'active' : '')
       };
       return (
         <div>
@@ -106,6 +106,7 @@ export class Withdrawals extends Component {
             <Section title="处理中的提现" className={`${styles}`}>
               <Griddle results={withdrawalsInProcess}
                        columnMetadata={columnMeta}
+                       rowMetadata={rowMetadata}
                        columns={['time', 'state', 'amount', 'alipayId']}
                        resultsPerPage="100"/>
             </Section>
