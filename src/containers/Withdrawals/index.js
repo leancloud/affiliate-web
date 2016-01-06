@@ -21,9 +21,9 @@ const columnMeta = [
     order: 1,
     cssClassName: 'time',
     customComponent: (props) => (
-      <div>
-        <div>{props.data.toLocaleDateString()}</div>
-        <div>{props.data.toLocaleTimeString(undefined, { hour12: false })}</div>
+      <div id={props.rowData.id}>
+        <div className="id info">#{props.rowData.id}</div>
+        <div>{props.data.toLocaleString('zh-CN', { hour12: false})}</div>
       </div>
     )
   },{
@@ -48,7 +48,7 @@ const columnMeta = [
     order: 3,
     cssClassName: 'payment',
     customComponent: (props) => (
-      <span className="info">支付宝({props.data})</span>
+      <span className="info">支付宝<br/>{props.data}</span>
     )
   },
 ];
@@ -62,6 +62,9 @@ const columnMeta = [
   }, dispatch)
 )
 export class Withdrawals extends Component {
+  static contextTypes = {
+    location: React.PropTypes.object,
+  }
   componentDidMount () {
     this.props.fetchWithdrawals();
   }
@@ -70,6 +73,7 @@ export class Withdrawals extends Component {
       withdrawals,
     } = this.props;
     let withdrawals2show = withdrawals.map(withdrawal => ({
+      id: withdrawal.objectId.slice(-7).toUpperCase(),
       amount: withdrawal.amount,
       time: new Date(withdrawal.createdAt),
       state: withdrawal.state,
@@ -92,6 +96,10 @@ export class Withdrawals extends Component {
       let withdrawalsRecords = withdrawals2show.filter(
         withdrawal => withdrawal.state !== 'init'
       );
+      const rowMetadata = {
+        bodyCssClassName: (rowData) =>
+          '#' + rowData.id === this.context.location.hash ? 'active' : ''
+      };
       return (
         <div>
           { withdrawalsInProcess.length > 0 && (
@@ -106,6 +114,7 @@ export class Withdrawals extends Component {
             <Section title="历史提现" className={`${styles}`}>
               <Griddle results={withdrawalsRecords}
                        columnMetadata={columnMeta}
+                       rowMetadata={rowMetadata}
                        columns={['time', 'state', 'amount', 'alipayId']}
                        resultsPerPage="100"/>
             </Section>

@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import createHistory from 'history/lib/createHashHistory';
 import { Provider } from 'react-redux';
-import { Router, Redirect } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 import configureStore from './store/configureStore';
 import routes from './routes';
 import { syncReduxAndRouter } from 'redux-simple-router';
@@ -13,16 +12,12 @@ AV.initialize('bkaTfiY3Nc2jLJW7hXRmoFiK', 'FkooEOxbmkmSnlEvTjxPFEiy');
 window.AV = AV;
 
 const store = configureStore();
-const history = createHistory({
-  queryKey: false
-});
-
-syncReduxAndRouter(history, store);
+syncReduxAndRouter(browserHistory, store);
 
 ReactDOM.render(
   <Provider store={store}>
     <div className="fill-parent">
-      <Router history={history}>
+      <Router history={browserHistory}>
         {routes}
       </Router>
       <DevTools />

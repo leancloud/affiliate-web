@@ -2,12 +2,17 @@
 
 :local(.styles) {
   line-height: 1.6;
+  tr.active {
+    background-color: rgba(248, 238, 199, .5);
+  }
   .time {
+    width: 26%;
     padding: 12px 0;
-    text-align: center;
+    padding-left: 12px;
   }
   .state {
     font-size: 16px;
+    padding-left: 12px;
     .fail {
       color: $error;
     }
@@ -25,12 +30,15 @@
     text-align: right;
     padding-right: 12px;
     font-size: 13px;
+    width: 15%;
     .figure {
       font-size: 16px;
     }
   }
   .payment {
     text-align: center;
+    width: 16%;
+    word-break: break-all;
   }
 
   .empty {

@@ -13,12 +13,23 @@ const metaData = {
   },
 };
 
-export const Account = connect()(
-  () => (
-    <section>
-      <DocumentMeta {...metaData} />
-      <AccountSummary/>
-      <AccountDetails/>
-    </section>
-  )
-);
+@connect()
+export class Account extends Component {
+  static childContextTypes = {
+    location: React.PropTypes.object
+  }
+
+  getChildContext() {
+    return { location: this.props.location }
+  }
+
+  render() {
+    return (
+      <section>
+        <DocumentMeta {...metaData} />
+        <AccountSummary/>
+        <AccountDetails/>
+      </section>
+    );
+  }
+}

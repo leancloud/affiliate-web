@@ -11,10 +11,14 @@ import * as userActionCreators from 'actions/user';
   dispatch => bindActionCreators({...userActionCreators}, dispatch)
 )
 export class Logout extends Component {
+  static contextTypes = {
+    router: React.PropTypes.object,
+  }
   componentWillMount() {
     AV.User.logOut();
     this.props.logout();
-    this.props.history.goBack();
+    console.log(this.context)
+    this.context.router.goBack();
   }
   render() {
     return (<div></div>);

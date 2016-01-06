@@ -8,7 +8,7 @@ import { Withdrawals } from 'containers/Withdrawals';
 import styles from './styles';
 
 export const AccountDetails = connect()(
-  () => (
+  props => (
     <section className={`${styles}`}>
       <div className="container">
         <div className="side">
