@@ -1,3 +1,4 @@
+/* eslint react/prop-types:0 */
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -14,7 +15,7 @@ import * as userActionCreators from 'actions/user';
 
 @connect(
   null,
-  dispatch => bindActionCreators({...userActionCreators}, dispatch)
+  dispatch => bindActionCreators({ ...userActionCreators }, dispatch)
 )
 export class App extends Component {
   static propTypes = {
@@ -27,7 +28,7 @@ export class App extends Component {
 
   render() {
     return (
-      <section className='fill-parent'>
+      <section className="fill-parent">
         <Header />
         <div className="fill-parent">
           {this.props.children}

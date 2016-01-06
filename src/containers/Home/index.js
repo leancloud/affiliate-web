@@ -1,3 +1,4 @@
+/* eslint react/prop-types:0 */
 import React, { Component } from 'react';
 import DocumentMeta from 'react-document-meta';
 import { connect } from 'react-redux';
@@ -9,19 +10,17 @@ const metaData = {
   title: 'LeanCloud Affiliate',
   description: '',
   meta: {
-    charset: 'utf-8'
+    charset: 'utf-8',
   },
 };
 
-@connect(
-  state => state.user,
-)
+@connect(state => state)
 export class Home extends Component {
   render() {
     return (
       <section className="fill-parent">
         <DocumentMeta {...metaData} />
-        <Banner isLoggedin={this.props.isAuthenticated}/>
+        <Banner isLoggedin={this.props.user.isAuthenticated}/>
       </section>
     );
   }

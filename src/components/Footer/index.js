@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 /* component styles */
 import { styles } from './styles.scss';
 
-export function Footer () {
+export function Footer() {
   return (
     <footer className={`${styles}`}>
       <ul className="container">

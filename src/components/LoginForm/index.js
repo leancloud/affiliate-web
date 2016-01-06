@@ -17,7 +17,7 @@ export class LoginForm extends Component {
 
   render() {
     const {
-      fields: {username, password},
+      fields: { username, password },
       handleSubmit,
     } = this.props;
 
@@ -29,14 +29,14 @@ export class LoginForm extends Component {
           tabIndex="1"
           required
           {...username}
-          />
+        />
         <input
           type="password"
           placeholder="密码"
           tabIndex="2"
           required
           {...password}
-          />
+        />
         <button className="pure-button button-primary" type="submit" tabIndex="3">
           登录
         </button>

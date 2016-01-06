@@ -17,7 +17,7 @@ export class SignupForm extends Component {
 
   render() {
     const {
-      fields: {username, password, email},
+      fields: { username, password, email },
       handleSubmit,
     } = this.props;
 
@@ -29,21 +29,21 @@ export class SignupForm extends Component {
           placeholder="邮箱"
           tabIndex="1"
           {...email}
-          />
+        />
         <input
           type="text"
           required
           placeholder="用户名"
           tabIndex="2"
           {...username}
-          />
+        />
         <input
           type="password"
           required
           placeholder="密码"
           tabIndex="3"
           {...password}
-          />
+        />
         <button className="pure-button button-primary" type="submit" tabIndex="4">
           注册
         </button>

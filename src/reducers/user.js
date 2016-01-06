@@ -14,7 +14,7 @@ export function user(state = {}, action) {
 
     case 'LOGIN_REJECTED':
       return {
-        loading: false
+        loading: false,
       };
 
     case 'LOGOUT':

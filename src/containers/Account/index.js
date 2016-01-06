@@ -9,18 +9,22 @@ const metaData = {
   title: '账户 - LeanCloud Affiliate',
   description: '',
   meta: {
-    charset: 'utf-8'
+    charset: 'utf-8',
   },
 };
 
 @connect()
 export class Account extends Component {
+  static propTypes = {
+    location: React.PropTypes.object,
+  }
+
   static childContextTypes = {
-    location: React.PropTypes.object
+    location: React.PropTypes.object,
   }
 
   getChildContext() {
-    return { location: this.props.location }
+    return { location: this.props.location };
   }
 
   render() {

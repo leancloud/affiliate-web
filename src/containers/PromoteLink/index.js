@@ -1,3 +1,4 @@
+/* eslint react/prop-types:0 */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ClipboardButton from 'react-clipboard.js';
@@ -13,27 +14,50 @@ import { styles } from './styles.scss';
   }),
 )
 export class PromoteLink extends Component {
-  constructor () {
+  constructor() {
     super();
     this.state = {};
   }
-  render () {
+
+  onCopySuccess = () => {
+    clearTimeout(this.timeout);
+    this.setState({
+      copied: 0,
+    });
+    this.timeout = setTimeout(() => {
+      this.setState({
+        copied: undefined,
+      });
+    }, 5000);
+  }
+
+  onCopyError = () => {
+    this.select();
+    this.setState({
+      copied: 1,
+    });
+  }
+
+  select = () => {
+    this.linkInput.select();
+  }
+
+  render() {
     const {
       user,
-      account,
     } = this.props;
     let buttonState;
     let buttonText;
     switch (this.state.copied) {
       case 0:
         buttonState = 'success';
-        buttonText = '✓ 已复制'
+        buttonText = '✓ 已复制';
         break;
       case 1:
         buttonState = 'secondary';
         buttonText = /Mac/i.test(navigator.userAgent)
           ? '按 ⌘-C 复制'
-          : '按 Ctrl-C 复制'
+          : '按 Ctrl-C 复制';
         break;
       default:
         buttonState = 'secondary';
@@ -44,16 +68,20 @@ export class PromoteLink extends Component {
       <Section title="推荐链接">
         <form className={`${styles} pure-form clearfix`}>
           您的推荐链接是：
-          <input type="url"
-                 readOnly
-                 value={link}
-                 id='link'
-                 ref={ref => this.linkInput = ref}
-                 onMouseOver={this.select}/>
-          <ClipboardButton data-clipboard-text={link}
-                     onSuccess={this.onCopySuccess}
-                     onError={this.onCopyError}
-                     className={`button-${buttonState} pure-button`}>
+          <input
+            type="url"
+            readOnly
+            value={link}
+            id="link"
+            ref={ref => this.linkInput = ref}
+            onMouseOver={this.select}
+          />
+          <ClipboardButton
+            data-clipboard-text={link}
+            onSuccess={this.onCopySuccess}
+            onError={this.onCopyError}
+            className={`button-${buttonState} pure-button`}
+          >
             {buttonText}
           </ClipboardButton>
         </form>
@@ -61,27 +89,4 @@ export class PromoteLink extends Component {
     );
   }
 
-  select = () => {
-    this.linkInput.select();
-  }
-
-  onCopySuccess = (e) => {
-    clearTimeout(this.timeout);
-    this.setState({
-      copied: 0
-    });
-    this.timeout = setTimeout(() => {
-      this.setState({
-        copied: undefined
-      });
-    }, 5000);
-  }
-
-  onCopyError = (e) => {
-    this.select();
-    this.setState({
-      copied: 1
-    });
-  }
-
-};
+}

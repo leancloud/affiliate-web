@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import { PromoteLink } from 'containers/PromoteLink';
@@ -8,7 +8,7 @@ import { Withdrawals } from 'containers/Withdrawals';
 import { styles } from './styles.scss';
 
 export const AccountDetails = connect()(
-  props => (
+  () => (
     <section className={`${styles}`}>
       <div className="container">
         <div className="side">

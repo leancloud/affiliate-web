@@ -1,4 +1,4 @@
-import { UPDATE_PATH } from 'redux-simple-router'
+import { UPDATE_PATH } from 'redux-simple-router';
 
 export function header(state = {}, action) {
   switch (action.type) {

@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
 function referredUsers(state = [], action) {
   switch (action.type) {
@@ -28,5 +28,5 @@ function withdrawals(state = [], action) {
 
 export const account = combineReducers({
   referredUsers,
-  withdrawals
+  withdrawals,
 });

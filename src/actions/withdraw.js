@@ -6,49 +6,49 @@ const Withdrawal = AV.Object.extend('Withdrawal');
 export function submitWithdrawApply(fields = {}) {
   return (dispatch) => {
     dispatch({
-      type: 'WITHDRAW_NEXT_STEP'
+      type: 'WITHDRAW_NEXT_STEP',
     });
     dispatch({
       type: 'WITHDRAW_DATA_UPDATED',
-      payload: fields
-    })
+      payload: fields,
+    });
   };
 }
 
 export function back(steps) {
   return {
     type: 'WITHDRAW_PREV_STEP',
-    payload: steps
+    payload: steps,
   };
 }
 
 export function cancel() {
   return {
-    type: 'WITHDRAW_CANCELED'
+    type: 'WITHDRAW_CANCELED',
   };
 }
 
 export function finish() {
   return (dispatch) => {
     dispatch({
-      type: 'WITHDRAW_FINISHED'
+      type: 'WITHDRAW_FINISHED',
     });
     dispatch(fetchWithdrawals());
     dispatch(updateUser());
-  }
+  };
 }
 
 export function newWithdrawal() {
   return (dispatch, getState) => {
-    let withdrawal = new Withdrawal(getState().withdrawModal.data);
+    const withdrawal = new Withdrawal(getState().withdrawModal.data);
     dispatch({
       type: 'CREATE_WITHDRAWAL',
       payload: {
-        promise: withdrawal.save()
-      }
+        promise: withdrawal.save(),
+      },
     });
     dispatch({
-      type: 'WITHDRAW_NEXT_STEP'
+      type: 'WITHDRAW_NEXT_STEP',
     });
   };
 }

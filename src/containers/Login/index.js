@@ -1,3 +1,4 @@
+/* eslint react/prop-types:0 */
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -5,7 +6,6 @@ import { Link } from 'react-router';
 import DocumentMeta from 'react-document-meta';
 
 import * as userActionCreators from 'actions/user';
-import { actions as notifActionCreators } from 're-notif';
 /* components */
 import { LoginForm } from 'components/LoginForm';
 
@@ -15,13 +15,13 @@ const metaData = {
   title: '登录 - LeanCloud Affiliate',
   description: '',
   meta: {
-    charset: 'utf-8'
+    charset: 'utf-8',
   },
 };
 
 @connect(
   null,
-  dispatch => bindActionCreators({...userActionCreators}, dispatch)
+  dispatch => bindActionCreators({ ...userActionCreators }, dispatch)
 )
 export class Login extends Component {
 

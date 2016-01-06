@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
 function step(state = 0, action) {
   switch (action.type) {
@@ -36,16 +36,16 @@ function withdrawal(state = {}, action) {
   switch (action.type) {
     case 'CREATE_WITHDRAWAL_PENDING':
       return {
-        loading: true
+        loading: true,
       };
     case 'CREATE_WITHDRAWAL_FULFILLED':
       return {
-        loading: false
+        loading: false,
       };
     case 'CREATE_WITHDRAWAL_REJECTED':
       return {
         loading: false,
-        error: action.payload
+        error: action.payload,
       };
     default:
       return state;

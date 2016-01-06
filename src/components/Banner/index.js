@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 /* component styles */
 import { styles } from './styles.scss';
 
-export function Banner (props) {
+export function Banner(props) {
   return (
     <section className={`${styles} fill-parent`}>
       <div className="container banner-wrapper">
@@ -25,3 +25,7 @@ export function Banner (props) {
     </section>
   );
 }
+
+Banner.propTypes = {
+  isLoggedin: React.PropTypes.bool,
+};

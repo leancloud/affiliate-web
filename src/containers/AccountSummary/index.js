@@ -1,7 +1,8 @@
+/* eslint react/prop-types:0 */
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import AV from 'avoscloud-sdk';
 
 import * as accountActionCreators from 'actions/account';
 import { WithdrawModal } from '../WithdrawModal';
@@ -18,17 +19,17 @@ const MAX_WITHDRAW_TIMES = 5;
     withdrawals: state.account.withdrawals,
     withdrawModal: state.withdrawModal,
   }),
-  dispatch => bindActionCreators({...accountActionCreators}, dispatch)
+  dispatch => bindActionCreators({ ...accountActionCreators }, dispatch)
 )
 export class AccountSummary extends Component {
   render() {
-    const user = AV.User.new(this.props.user, { parse: true});
+    const user = AV.User.new(this.props.user, { parse: true });
     let updateTime = user.get('commissionUpdatedAt');
     updateTime = (updateTime && updateTime.toLocaleString)
       ? updateTime.toLocaleString()
       : '未知';
 
-    let monthStartTime = new Date();
+    const monthStartTime = new Date();
     monthStartTime.setDate(1);
     monthStartTime.setHours(0);
     monthStartTime.setMinutes(0);
@@ -43,8 +44,7 @@ export class AccountSummary extends Component {
     return (
       <section className={`${styles}`}>
         <div className="container">
-          <div className="details"
-            title={`更新时间：${updateTime}`}>
+          <div className="details" title={`更新时间：${updateTime}`}>
             <div>
               <div className="label">账户余额：</div>
               <strong>
@@ -61,9 +61,11 @@ export class AccountSummary extends Component {
           </div>
           <div>
             <div>
-              <button className="pure-button button-primary"
-                      disabled={!timesLeft}
-                      onClick={this.props.startWithdraw}>
+              <button
+                className="pure-button button-primary"
+                disabled={!timesLeft}
+                onClick={this.props.startWithdraw}
+              >
                 提现
               </button>
             </div>

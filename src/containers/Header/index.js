@@ -1,3 +1,4 @@
+/* eslint react/prop-types:0 */
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { bindActionCreators } from 'redux';
@@ -10,17 +11,15 @@ import * as headerActionCreators from 'actions/header';
 import { styles } from './styles.scss';
 
 @connect(
-  state => {
-    return {
-      user: state.user,
-      header: state.header,
-    }
-  },
-  dispatch => bindActionCreators({...headerActionCreators}, dispatch)
+  state => ({
+    user: state.user,
+    header: state.header,
+  }),
+  dispatch => bindActionCreators({ ...headerActionCreators }, dispatch)
 )
 export class Header extends Component {
   render() {
-    let { user, header } = this.props;
+    const { user, header } = this.props;
     let userInfo;
 
     if (!user.isAuthenticated) {
@@ -34,7 +33,7 @@ export class Header extends Component {
       userInfo = (
         <div className="item username" onClick={this.props.toggleMenu}>
           {user.username}
-          <span className={classNames('toggle-arrow', {open: header.menuOnshow})}></span>
+          <span className={classNames('toggle-arrow', { open: header.menuOnshow })}></span>
         </div>
       );
       if (header.menuOnshow) {
@@ -71,7 +70,7 @@ export class Header extends Component {
 
 @listensToClickOutside()
 class Dropdown extends Component {
-  handleClickOutside (event) {
+  handleClickOutside(event) {
     return this.props.onClickOutside(event);
   }
   render() {

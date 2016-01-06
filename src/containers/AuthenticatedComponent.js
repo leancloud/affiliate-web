@@ -1,6 +1,7 @@
+/* eslint react/prop-types:0 */
 import React from 'react';
 import { connect } from 'react-redux';
-import { pushPath } from 'redux-simple-router'
+import { pushPath } from 'redux-simple-router';
 
 export function requireAuthentication(Component) {
 
@@ -11,13 +12,13 @@ export function requireAuthentication(Component) {
       this.checkAuth();
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps() {
       this.checkAuth();
     }
 
     checkAuth() {
       if (!this.props.user.isAuthenticated) {
-        let redirectAfterLogin = this.props.routing.path;
+        const redirectAfterLogin = this.props.routing.path;
         this.props
           .dispatch(pushPath(`/login?next=${redirectAfterLogin}`));
       }
@@ -31,7 +32,7 @@ export function requireAuthentication(Component) {
            : null
          }
          </div>
-       )
+       );
     }
   }
 
