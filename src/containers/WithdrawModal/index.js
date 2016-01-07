@@ -175,7 +175,7 @@ class Confirm extends Component {
 class Result extends Component {
   restart = () => {
     this.props.back(2);
-  }
+  };
   render() {
     const {
       withdrawModal: {

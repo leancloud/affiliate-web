@@ -13,7 +13,7 @@ import * as userActionCreators from 'actions/user';
 export class Logout extends Component {
   static contextTypes = {
     router: React.PropTypes.object,
-  }
+  };
   componentWillMount() {
     AV.User.logOut();
     this.props.logout();

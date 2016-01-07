@@ -13,7 +13,7 @@ export class SignupForm extends Component {
   static propTypes = {
     fields: React.PropTypes.object.isRequired,
     handleSubmit: React.PropTypes.func.isRequired,
-  }
+  };
 
   render() {
     const {

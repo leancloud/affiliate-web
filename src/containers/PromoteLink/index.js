@@ -29,18 +29,18 @@ export class PromoteLink extends Component {
         copied: undefined,
       });
     }, 5000);
-  }
+  };
 
   onCopyError = () => {
     this.select();
     this.setState({
       copied: 1,
     });
-  }
+  };
 
   select = () => {
     this.linkInput.select();
-  }
+  };
 
   render() {
     const {

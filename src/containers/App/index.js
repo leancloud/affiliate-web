@@ -20,7 +20,7 @@ import * as userActionCreators from 'actions/user';
 export class App extends Component {
   static propTypes = {
     children: React.PropTypes.any,
-  }
+  };
 
   componentWillMount() {
     this.props.updateUser();

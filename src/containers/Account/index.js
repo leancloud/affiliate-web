@@ -17,11 +17,11 @@ const metaData = {
 export class Account extends Component {
   static propTypes = {
     location: React.PropTypes.object,
-  }
+  };
 
   static childContextTypes = {
     location: React.PropTypes.object,
-  }
+  };
 
   getChildContext() {
     return { location: this.props.location };

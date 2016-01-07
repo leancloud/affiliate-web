@@ -65,7 +65,7 @@ const columnMeta = [
 export class Withdrawals extends Component {
   static contextTypes = {
     location: React.PropTypes.object,
-  }
+  };
   componentDidMount() {
     this.props.fetchWithdrawals();
   }
