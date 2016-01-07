@@ -46,7 +46,7 @@ export class AccountSummary extends Component {
         <div className="container">
           <div className="details" title={`更新时间：${updateTime}`}>
             <div>
-              <div className="label">账户余额：</div>
+              <div className="label">可提现金额：</div>
               <strong>
                 {((user.get('commission') || 0) - (user.get('totalWithdrawal') || 0)).toFixed(2)}
               </strong> 元
