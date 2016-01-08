@@ -8,10 +8,12 @@
     color: $info-color;
     border-bottom: $border;
     li {
-      margin-right: 3.5em;
       float: left;
       &.active {
         color: $content-color;
+      }
+      &:not(:last-child) {
+        margin-right: 3.5em;
       }
     }
   }
