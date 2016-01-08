@@ -82,6 +82,7 @@
     "react-router": "2.0.0-rc4",
     "redux": "^3.0.4",
     "redux-promise-middleware": "^2.3.0",
-    "redux-router": "^1.0.0-beta5"
+    "redux-router": "^1.0.0-beta5",
+    "superagent": "^1.6.1"
   }
 }
