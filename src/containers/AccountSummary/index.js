@@ -40,37 +40,70 @@ export class AccountSummary extends Component {
       && withdrawal.state !== 'fail'
     );
     const timesLeft = Math.max(0, MAX_WITHDRAW_TIMES - withdrawalsThisMonth.length);
+    const balance = (user.get('commission') || 0) - (user.get('totalWithdrawal') || 0);
 
+    const balanceSection = (
+      <div className="details" title={`更新时间：${updateTime}`}>
+        <div>
+          <div className="label">可提现金额：</div>
+          <strong>
+            {balance.toFixed(2)}
+          </strong> 元
+        </div>
+      </div>
+    );
+    const timesLeftSection = (
+      <div className="details">
+        <div>
+          <div className="label">您本月还可以提现：</div>
+          <strong>{timesLeft}</strong> 次
+          <span className="info">（每月 1 日刷新）</span>
+        </div>
+      </div>
+    );
+    const operationsSection = (
+      <div>
+        <div>
+          <button
+            className="pure-button button-primary"
+            disabled={!timesLeft}
+            onClick={this.props.startWithdraw}
+          >
+            提现
+          </button>
+        </div>
+      </div>
+    );
+    const guideSection = (
+      <div className="guide">
+        <div>
+          <img src={require('./images/step1.png')} width="209" />
+          <img src={require('./images/step2.png')} width="209" />
+          <img src={require('./images/step3.png')} width="209" />
+        </div>
+      </div>
+    );
+
+    let container;
+    if (balance > 0) {
+      container = (
+        <div className="container">
+          {balanceSection}
+          {timesLeftSection}
+          {operationsSection}
+        </div>
+      );
+    } else {
+      container = (
+        <div className="container">
+          {balanceSection}
+          {guideSection}
+        </div>
+      );
+    }
     return (
       <section className={`${styles}`}>
-        <div className="container">
-          <div className="details" title={`更新时间：${updateTime}`}>
-            <div>
-              <div className="label">可提现金额：</div>
-              <strong>
-                {((user.get('commission') || 0) - (user.get('totalWithdrawal') || 0)).toFixed(2)}
-              </strong> 元
-            </div>
-          </div>
-          <div className="details">
-            <div>
-              <div className="label">您本月还可以提现：</div>
-              <strong>{timesLeft}</strong> 次
-              <span className="info">（每月 1 日刷新）</span>
-            </div>
-          </div>
-          <div>
-            <div>
-              <button
-                className="pure-button button-primary"
-                disabled={!timesLeft}
-                onClick={this.props.startWithdraw}
-              >
-                提现
-              </button>
-            </div>
-          </div>
-        </div>
+        {container}
         {
           this.props.withdrawModal.step ? <WithdrawModal/> : ''
         }

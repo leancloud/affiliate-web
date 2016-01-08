@@ -18,19 +18,56 @@
     > div {
       flex: 16;
       display: flex;
-      align-items: center;
       flex-direction: column;
-      &:not(:last-child) {
+      @media (#{$phone}) {
+        width: 100%;
+      }
+      @media not all and (#{$phone}) {
+        align-items: center;
+      }
+      &:not(:first-child) {
         @media not all and (#{$phone}) {
-          border-right: $border;
+          border-left: $border;
         }
         @media (#{$phone}) {
-          margin-bottom: 20px;
+          margin-top: 20px;
+        }
+      }
+      &.guide {
+        >div {
+          width: 100%;
+          background: #fff;
+          border: $border;
+          border-radius: 3px;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          overflow: hidden;
+          >img {
+            margin: 0 -40px;
+          }
+          @media (#{$phone-portrait}) {
+            flex-direction: column;
+            background: none;
+            border: none;
+            >img {
+              border-bottom: 1px solid $border-color;
+              padding: 0 30px;
+              box-sizing: content-box;
+              &:not(:last-child) {
+                margin: 0 0 20px;
+              }
+            }
+          }
         }
       }
       @media not all and (#{$phone}) {
         &.details {
           flex-basis: 10%;
+        }
+        &.guide {
+          flex: 48;
+          border: none;
         }
       }
 
