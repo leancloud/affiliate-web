@@ -1,4 +1,4 @@
-LeanCloud Affiliate [![Travis](https://img.shields.io/travis/leancloud/affiliate-web.svg?style=flat-square)](https://travis-ci.org/leancloud/affiliate-web)  [![stg](https://img.shields.io/badge/stg-leancloud.github.io%2Faffiliate--web-blue.svg?style=flat-square)](http://leancloud.github.io/affiliate-web/)
+LeanCloud Affiliate [![Travis](https://img.shields.io/travis/leancloud/affiliate-web.svg?style=flat-square)](https://travis-ci.org/leancloud/affiliate-web)  [![stg](https://img.shields.io/badge/stg-leancloud.github.io%2Faffiliate--web-blue.svg?style=flat-square)](https://leancloud.github.io/affiliate-web/)
 =========================
 
 
