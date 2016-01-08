@@ -81,7 +81,7 @@ export class Withdrawals extends Component {
       alipayId: withdrawal.alipayId,
       note: withdrawal.note,
     }));
-    if (withdrawals2show === 0) {
+    if (withdrawals2show.length === 0) {
       return (
         <Section title="提现记录" className={`${styles}`}>
           <div className="empty">
