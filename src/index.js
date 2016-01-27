@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
+import ga from 'ga-react-router';
 import configureStore from './store/configureStore';
 import routes from './routes';
 import { syncReduxAndRouter } from 'redux-simple-router';
@@ -13,6 +14,13 @@ window.AV = AV;
 
 const store = configureStore();
 syncReduxAndRouter(browserHistory, store);
+browserHistory.listen(location => {
+  ga('send', {
+    'hitType': 'pageview',
+    'page': location.pathname,
+    'title': location.pathname,
+  });
+});
 
 ReactDOM.render(
   <Provider store={store}>

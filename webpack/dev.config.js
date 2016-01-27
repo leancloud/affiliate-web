@@ -18,7 +18,8 @@ module.exports = {
 
   plugins: [
     new webpack.DefinePlugin({
-      __DEVELOPMENT__: true
+      __DEVELOPMENT__: true,
+      GA_TRACKING_CODE: JSON.stringify('UA-56612755-2'),
     }),
     new ExtractTextPlugin('bundle.css'),
     new webpack.optimize.OccurenceOrderPlugin(),

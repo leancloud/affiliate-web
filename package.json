@@ -71,6 +71,7 @@
   "dependencies": {
     "avoscloud-sdk": "1.0.0-rc5",
     "express": "^4.13.3",
+    "ga-react-router": "^2.0.0",
     "griddle-react": "^0.3.0",
     "leanengine": "^0.2.0",
     "purecss": "^0.6.0",
