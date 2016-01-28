@@ -21,6 +21,7 @@ module.exports = {
         NODE_ENV: '"production"',
       },
       __DEVELOPMENT__: false,
+      GA_TRACKING_CODE: JSON.stringify('UA-42629236-8'),
     }),
     new ExtractTextPlugin('bundle.css'),
     new webpack.optimize.DedupePlugin(),
