@@ -167,7 +167,7 @@ export function resetPassword(fields = {}) {
   return (dispatch) => {
     AV.User.requestPasswordReset(fields.email).then(() =>
       dispatch(notifActions.notifSend({
-        message: '验证邮件发送成功',
+        message: '密码重设邮件发送成功',
         kind: 'success',
         dismissAfter: 2000,
       }))
