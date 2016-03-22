@@ -42,7 +42,8 @@ export class Header extends Component {
             <div className="userinfo">
               {userInfo}
               <nav>
-                {/* <Link to="/settings">设置</Link> */}
+                <Link to="/account">账户</Link>
+                <Link to="/settings">设置</Link>
                 <Link to="/logout">注销</Link>
               </nav>
             </div>

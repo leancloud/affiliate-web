@@ -26,7 +26,7 @@ export function requireAuthentication(Component) {
 
     render() {
       return (
-        <div>
+        <div className="fill-parent">
          {this.props.user.isAuthenticated === true
            ? <Component {...this.props}/>
            : null
