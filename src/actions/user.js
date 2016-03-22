@@ -2,8 +2,12 @@ import AV from 'avoscloud-sdk';
 import { actions as notifActions } from 're-notif';
 import { pushPath } from 'redux-simple-router';
 
-const LOGIN_ERROR_MESSAGES = {
-  '211': '该用户不存在',
+const ERROR_MESSAGES = {
+  '210': '密码不正确',
+  '211': '此用户不存在',
+  '202': '此用户名已被注册',
+  '203': '此邮箱已被注册',
+  '205': '没有用此邮箱注册的用户',
 };
 
 export function logout() {
@@ -32,7 +36,7 @@ export function login(fields = {}) {
       dispatch(pushPath(nextPath));
     }).catch((error) =>
       dispatch(notifActions.notifSend({
-        message: LOGIN_ERROR_MESSAGES[error.code] || error.message,
+        message: ERROR_MESSAGES[error.code] || error.message,
         kind: 'danger',
         dismissAfter: 5000,
       }))
@@ -70,7 +74,29 @@ export function signup(fields = {}) {
       }));
     }).catch((error) =>
       dispatch(notifActions.notifSend({
-        message: LOGIN_ERROR_MESSAGES[error.code] || error.message,
+        message: ERROR_MESSAGES[error.code] || error.message,
+        kind: 'danger',
+        dismissAfter: 5000,
+      }))
+    );
+  };
+}
+
+export function changePassword(fields = {}) {
+  const {
+    newPassword,
+    password,
+  } = fields;
+  return (dispatch) => {
+    AV.User.current().updatePassword(password, newPassword).then(() =>
+      dispatch(notifActions.notifSend({
+        message: '修改密码成功',
+        kind: 'success',
+        dismissAfter: 2000,
+      }))
+    ).catch((error) =>
+      dispatch(notifActions.notifSend({
+        message: ERROR_MESSAGES[error.code] || error.message,
         kind: 'danger',
         dismissAfter: 5000,
       }))
@@ -99,6 +125,25 @@ export function updateUser(event) {
   };
 }
 
+export function updateInfo(fields = {}) {
+  return (dispatch) => {
+    AV.User.current().set(fields).save().then(() => {
+      dispatch(notifActions.notifSend({
+        message: '更新信息成功',
+        kind: 'success',
+        dismissAfter: 2000,
+      }));
+      dispatch(updateUser());
+    }).catch((error) =>
+      dispatch(notifActions.notifSend({
+        message: ERROR_MESSAGES[error.code] || error.message,
+        kind: 'danger',
+        dismissAfter: 5000,
+      }))
+    );
+  };
+}
+
 export function requestEmailVerify() {
   return (dispatch, getState) => {
     const email = getState().user.email;
@@ -110,7 +155,25 @@ export function requestEmailVerify() {
       }))
     ).catch((error) =>
       dispatch(notifActions.notifSend({
-        message: LOGIN_ERROR_MESSAGES[error.code] || error.message,
+        message: ERROR_MESSAGES[error.code] || error.message,
+        kind: 'danger',
+        dismissAfter: 5000,
+      }))
+    );
+  };
+}
+
+export function resetPassword(fields = {}) {
+  return (dispatch) => {
+    AV.User.requestPasswordReset(fields.email).then(() =>
+      dispatch(notifActions.notifSend({
+        message: '验证邮件发送成功',
+        kind: 'success',
+        dismissAfter: 2000,
+      }))
+    ).catch((error) =>
+      dispatch(notifActions.notifSend({
+        message: ERROR_MESSAGES[error.code] || error.message,
         kind: 'danger',
         dismissAfter: 5000,
       }))

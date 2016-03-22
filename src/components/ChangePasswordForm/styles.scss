@@ -1,0 +1,12 @@
+@import "../../styles/variables";
+
+:local(.styles) {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 120%;
+  > input {
+    margin-bottom: 15px;
+  }
+}

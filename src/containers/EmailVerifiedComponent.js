@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { VerifyEmailModal } from 'containers/VerifyEmailModal';
 
-export function requireVerification(options = {}) {
+export function requireEmailVerification(options = {}) {
 
   return Component => {
 

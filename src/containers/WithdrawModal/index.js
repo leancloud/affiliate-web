@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
-import { requireVerification } from 'containers/VerifiedComponent';
+import { requireEmailVerification } from 'containers/EmailVerifiedComponent';
+import { requireRealNameVerification } from 'containers/RealNameVerifiedComponent';
 import * as withdrawActionCreators from 'actions/withdraw';
 import { Modal } from 'components/Modal';
 
@@ -17,9 +18,13 @@ import { styles } from './styles.scss';
   }),
   dispatch => bindActionCreators({ ...withdrawActionCreators }, dispatch)
 )
-@requireVerification({
+@requireEmailVerification({
   onCancel: props => props.cancel(),
   hint: '为了您的资金安全，验证邮件地址后才能申请提现。',
+})
+@requireRealNameVerification({
+  onCancel: props => props.cancel(),
+  hint: '身份信息仅被用于代您申报扣除个人所得税。',
 })
 export class WithdrawModal extends Component {
   render() {

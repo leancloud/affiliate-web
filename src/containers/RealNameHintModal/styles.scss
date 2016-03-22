@@ -1,0 +1,11 @@
+@import "../../styles/variables";
+
+:local(.styles) {
+  .content {
+    text-align: center;
+  }
+
+  a {
+    margin: 1em .5em;
+  }
+}
