@@ -15,6 +15,9 @@
     "url": "https://github.com/leancloud/affiliate-web.git"
   },
   "license": "MIT",
+  "engines": {
+    "node": "4.x"
+  },
   "devDependencies": {
     "autoprefixer": "^6.0.2",
     "babel-core": "^6.3.26",
@@ -33,7 +36,6 @@
     "eslint-plugin-react": "^3.14.0",
     "expect": "^1.12.0",
     "exports-loader": "^0.6.2",
-    "express": "^4.13.3",
     "express-open-in-editor": "^1.0.0",
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.4",
@@ -66,14 +68,9 @@
     "webpack": "^1.9.6",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-dev-server": "^1.8.2",
-    "webpack-hot-middleware": "^2.4.1"
-  },
-  "dependencies": {
     "avoscloud-sdk": "1.0.0-rc5",
-    "express": "^4.13.3",
     "ga-react-router": "^2.0.0",
     "griddle-react": "^0.3.0",
-    "leanengine": "^0.2.0",
     "purecss": "^0.6.0",
     "re-notif": "^1.0.2",
     "react": "^0.14.2",
@@ -84,6 +81,11 @@
     "redux": "^3.0.4",
     "redux-promise-middleware": "^2.3.0",
     "redux-router": "^1.0.0-beta5",
-    "superagent": "^1.6.1"
+    "superagent": "^1.6.1",
+    "webpack-hot-middleware": "^2.4.1"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "leanengine": "^0.4.0"
   }
 }
