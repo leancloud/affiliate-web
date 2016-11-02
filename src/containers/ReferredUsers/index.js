@@ -50,7 +50,7 @@ export class ReferredUsers extends Component {
       referredUsers,
     } = this.props;
     const users = referredUsers.map(user => ({
-      userName: user.userName,
+      userName: user.userName + (user.identity ? ` (${user.identity})` : ''),
       registerAt: new Date(user.registerAt.iso),
       totalPayment: user.totalPayment,
     }));
