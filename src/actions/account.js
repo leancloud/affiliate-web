@@ -1,4 +1,4 @@
-import AV from 'avoscloud-sdk';
+import AV from 'leancloud-storage';
 
 export function fetchReferredUsers() {
   const query = new AV.Query('ReferredUser')

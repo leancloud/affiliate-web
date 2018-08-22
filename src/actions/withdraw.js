@@ -1,4 +1,4 @@
-import AV from 'avoscloud-sdk';
+import AV from 'leancloud-storage';
 import { fetchWithdrawals } from './account';
 import { updateUser } from './user';
 const Withdrawal = AV.Object.extend('Withdrawal');

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import AV from 'avoscloud-sdk';
+import AV from 'leancloud-storage';
 
 import * as userActionCreators from 'actions/user';
 

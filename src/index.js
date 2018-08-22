@@ -8,7 +8,7 @@ import routes from './routes';
 import { syncReduxAndRouter } from 'redux-simple-router';
 import DevTools from './containers/DevTools';
 
-import AV from 'avoscloud-sdk';
+import AV from 'leancloud-storage';
 AV.initialize('bkaTfiY3Nc2jLJW7hXRmoFiK', 'FkooEOxbmkmSnlEvTjxPFEiy');
 window.AV = AV;
 

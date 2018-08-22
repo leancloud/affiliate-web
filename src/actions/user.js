@@ -1,4 +1,4 @@
-import AV from 'avoscloud-sdk';
+import AV from 'leancloud-storage';
 import { actions as notifActions } from 're-notif';
 import { pushPath } from 'redux-simple-router';
 
