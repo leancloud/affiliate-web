@@ -26,7 +26,7 @@ export class Header extends Component {
       userInfo = (
         <nav>
           <Link to="/login" activeClassName="active">登录</Link>
-          <Link to="/signup" activeClassName="active">注册</Link>
+          {/* <Link to="/signup" activeClassName="active">注册</Link> */}
         </nav>
       );
     } else {

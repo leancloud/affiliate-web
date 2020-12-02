@@ -1,11 +1,11 @@
 /* eslint react/prop-types:0 */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ClipboardButton from 'react-clipboard.js';
+// import ClipboardButton from 'react-clipboard.js';
 
 import { Section } from 'components/Section';
 /* component styles */
-import { styles } from './styles.scss';
+// import { styles } from './styles.scss';
 
 @connect(
   status => ({
@@ -43,30 +43,30 @@ export class PromoteLink extends Component {
   };
 
   render() {
-    const {
-      user,
-    } = this.props;
-    let buttonState;
-    let buttonText;
-    switch (this.state.copied) {
-      case 0:
-        buttonState = 'success';
-        buttonText = '✓ 已复制';
-        break;
-      case 1:
-        buttonState = 'secondary';
-        buttonText = /Mac/i.test(navigator.userAgent)
-          ? '按 ⌘-C 复制'
-          : '按 Ctrl-C 复制';
-        break;
-      default:
-        buttonState = 'secondary';
-        buttonText = '复制';
-    }
-    const link = `https://leancloud.cn/?source=${user.promoteCode}`;
+    // const {
+    //   user,
+    // } = this.props;
+    // let buttonState;
+    // let buttonText;
+    // switch (this.state.copied) {
+    //   case 0:
+    //     buttonState = 'success';
+    //     buttonText = '✓ 已复制';
+    //     break;
+    //   case 1:
+    //     buttonState = 'secondary';
+    //     buttonText = /Mac/i.test(navigator.userAgent)
+    //       ? '按 ⌘-C 复制'
+    //       : '按 Ctrl-C 复制';
+    //     break;
+    //   default:
+    //     buttonState = 'secondary';
+    //     buttonText = '复制';
+    // }
+    // const link = `https://leancloud.cn/?source=${user.promoteCode}`;
     return (
       <Section title="推荐链接">
-        <form className={`${styles} pure-form clearfix`}>
+        {/* <form className={`${styles} pure-form clearfix`}>
           您的推荐链接是：
           <input
             type="url"
@@ -84,7 +84,8 @@ export class PromoteLink extends Component {
           >
             {buttonText}
           </ClipboardButton>
-        </form>
+        </form> */}
+        <p>暂不接受新的推荐。</p>
       </Section>
     );
   }
